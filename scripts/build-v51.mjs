@@ -83,15 +83,15 @@ async function main() {
           <button type="button" class="link-arrow" data-open="${i}"><span>${e(L.ver)}</span>${ARROW}</button>
         </div>
       </article>`).join('');
-  const portfolioChoices = port.projetos.map((p, i) => \`
-    <button class="portfolio-choice" type="button" data-portfolio-select="\${i}" aria-label="Abrir estudo: \${e(p.titulo)}">
-      <span class="portfolio-choice-image"><img src="assets/\${e(p.imagem)}-768.webp" width="768" height="512" alt="" decoding="async"></span>
+  const portfolioChoices = port.projetos.map((p, i) => `
+    <button class="portfolio-choice" type="button" data-portfolio-select="${i}" aria-label="Abrir estudo: ${e(p.titulo)}">
+      <span class="portfolio-choice-image"><img src="assets/${e(p.imagem)}-768.webp" width="768" height="512" alt="" decoding="async"></span>
       <span class="portfolio-choice-meta">
-        <span class="portfolio-choice-num">\${n2(i)}</span>
-        <span class="portfolio-choice-text"><small>\${e(p.area)}</small><strong>\${e(p.titulo)}</strong></span>
+        <span class="portfolio-choice-num">${n2(i)}</span>
+        <span class="portfolio-choice-text"><small>${e(p.area)}</small><strong>${e(p.titulo)}</strong></span>
         <span class="portfolio-choice-arrow" aria-hidden="true">↗</span>
       </span>
-    </button>\`).join('');
+    </button>`).join('');
 
   const obrasData = port.projetos.map(p => ({
     id: p.id, area: p.area, titulo: p.titulo, subtitulo: p.subtitulo || '', descricao: p.descricao, alt: p.alt, imagem: p.imagem, ficha: p.ficha || null,
@@ -409,8 +409,8 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
       </div>
       <button class="portfolio-index-close" type="button" data-portfolio-close aria-label="Fechar portfólio">×</button>
     </header>
-    <div class="portfolio-index-grid">\${portfolioChoices}</div>
-    <p class="portfolio-index-note">\${e(site.portfolio.aviso)}</p>
+    <div class="portfolio-index-grid">${portfolioChoices}</div>
+    <p class="portfolio-index-note">${e(site.portfolio.aviso)}</p>
   </div>
 </dialog>
 
