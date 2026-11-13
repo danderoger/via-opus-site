@@ -113,7 +113,10 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 .mm[open] summary{color:var(--ivory)}
 .mm[open] summary i::before{top:4px;transform:rotate(45deg)}
 .mm[open] summary i::after{top:4px;transform:rotate(-45deg)}
-.mm-panel{position:fixed;inset:0;z-index:1;background:var(--ink);color:var(--ivory);padding:110px var(--gut) 40px;display:flex;flex-direction:column;gap:28px;overflow:auto}
+/* O backdrop-filter do cabeçalho cria um containing block para position:fixed.
+   Ao abrir o menu, removê-lo e dimensionar explicitamente para a viewport. */
+.hd:has(.mm[open]){transform:none!important;background:transparent!important;border-bottom-color:transparent;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.mm-panel{position:fixed;inset:0 auto auto 0;z-index:1;width:100vw;height:100vh;height:100dvh;background:var(--ink);color:var(--ivory);padding:110px var(--gut) 40px;display:flex;flex-direction:column;gap:28px;overflow-y:auto;overscroll-behavior:contain}
 .mm-panel ol{display:grid;gap:6px}
 .mm-panel li{opacity:0;transform:translateY(24px);animation:mmIn .7s var(--ease) forwards;animation-delay:.08s}
 .mm-panel li:nth-child(2){animation-delay:.14s}.mm-panel li:nth-child(3){animation-delay:.2s}.mm-panel li:nth-child(4){animation-delay:.26s}.mm-panel li:nth-child(5){animation-delay:.32s}
