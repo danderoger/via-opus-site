@@ -98,6 +98,8 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 .hd-nav a:hover,.hd-nav a.is-on{opacity:1}
 .hd-nav a::before{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--cu);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
 .hd-nav a:hover::before,.hd-nav a.is-on::before{transform:scaleX(1);transform-origin:left}
+.hd-portfolio{display:none;align-items:center;min-height:44px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border-bottom:1px solid currentColor;white-space:nowrap}
+.hd-portfolio:hover{color:var(--cu)}
 .hd-access{display:none;align-items:center;justify-content:center;gap:9px;height:44px;padding:0 14px;border:1px solid currentColor;border-radius:999px;text-decoration:none;font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;white-space:nowrap;transition:background .4s,color .4s,border-color .4s}
 .hd-access svg,.mm-access svg{flex:none}
 .hd-access:hover{background:var(--cu);border-color:var(--cu);color:var(--ivory)}
@@ -123,6 +125,7 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 .mm-foot{margin-top:auto;color:var(--d-faint);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
 @keyframes mmIn{to{opacity:1;transform:none}}
 @media (min-width:700px){.hd-access{display:inline-flex}}
+@media (min-width:900px) and (max-width:1379px){.hd-portfolio{display:inline-flex}}
 @media (min-width:1380px){.hd-in{gap:18px}.hd-nav{display:flex;gap:20px}.hd-cta{display:inline-flex;padding:0 16px}.mm{display:none}}
 
 /* ── elevador (pavimentos) ── */
@@ -479,6 +482,48 @@ textarea::placeholder{color:var(--d-faint)}
 @media (min-width:1100px){.wa-float{display:none}}
 
 /* ── estudo (diálogo) ── */
+
+/* ── índice do portfólio: todas as opções aparecem sem rolar pela maquete ── */
+.portfolio-index{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--ink);color:var(--ivory);overflow:auto;overscroll-behavior:contain}
+.portfolio-index::backdrop{background:rgba(0,0,0,.75)}
+.portfolio-index[open]{display:flex;align-items:center;justify-content:center;animation:portfolioIndexIn .3s var(--ease)}
+@keyframes portfolioIndexIn{from{opacity:0;transform:translateY(18px)}}
+.portfolio-index-inner{width:min(1420px,100%);min-height:100%;margin:auto;padding:clamp(28px,6vh,68px) var(--gut);display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,3vh,32px)}
+.portfolio-index-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start}
+.portfolio-index-kicker{font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--cu-2)}
+.portfolio-index-head h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,4vw,4.5rem);letter-spacing:-.03em;line-height:1.04;margin-top:10px}
+.portfolio-index-sub{font-size:clamp(13px,1.2vw,16px);color:var(--d-muted);max-width:62ch;margin-top:10px}
+.portfolio-index-close{display:grid;place-items:center;flex:none;width:48px;height:48px;border:1px solid var(--d-line);border-radius:50%;background:transparent;color:var(--ivory);font:300 32px/1 var(--sans);cursor:pointer}
+.portfolio-index-close:hover{border-color:var(--cu-2);background:var(--cu);color:var(--ivory)}
+.portfolio-index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.9vw,25px)}
+.portfolio-choice{width:100%;min-width:0;display:flex;flex-direction:column;padding:0;border:1px solid var(--d-line);border-radius:5px;background:var(--g2);color:var(--ivory);text-align:left;font-family:var(--sans);cursor:pointer;overflow:hidden;transition:border-color .3s,transform .3s var(--ease)}
+.portfolio-choice:hover,.portfolio-choice:focus-visible{border-color:var(--cu-2);transform:translateY(-3px)}
+.portfolio-choice:focus-visible,.portfolio-index-close:focus-visible{outline:2px solid var(--cu-2);outline-offset:3px}
+.portfolio-choice-image{display:block;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--g1)}
+.portfolio-choice-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.portfolio-choice:hover img{transform:scale(1.05)}
+.portfolio-choice-meta{display:flex;align-items:center;gap:10px;min-height:74px;padding:12px 15px}
+.portfolio-choice-num{align-self:flex-start;font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.3rem);line-height:1;color:var(--cu-2)}
+.portfolio-choice-text{display:grid;gap:4px;min-width:0}
+.portfolio-choice-text small{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--d-muted)}
+.portfolio-choice-text strong{font-family:var(--serif);font-size:clamp(1.1rem,1.65vw,1.55rem);font-weight:400;line-height:1.1}
+.portfolio-choice-arrow{margin-left:auto;align-self:center;font-size:20px;color:var(--cu-2)}
+.portfolio-index-note{font-size:12px;line-height:1.45;color:var(--d-muted);max-width:100ch}
+@media (min-width:1000px){.portfolio-index-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:599px){
+  .portfolio-index-inner{padding:26px 16px;gap:16px}
+  .portfolio-index-head h2{font-size:clamp(2rem,8vw,2.7rem)}
+  .portfolio-index-close{width:42px;height:42px}
+  .portfolio-choice-image{aspect-ratio:16/10}
+  .portfolio-choice-meta{min-height:62px;padding:9px;gap:6px}
+  .portfolio-choice-num{font-size:1.5rem}
+  .portfolio-choice-text small{font-size:9px;letter-spacing:.08em}
+  .portfolio-choice-text strong{font-size:1.06rem}
+  .portfolio-choice-arrow{font-size:17px}
+}
+@media (max-height:650px){.portfolio-index-inner{justify-content:flex-start;padding-top:16px;padding-bottom:16px}.portfolio-choice-image{aspect-ratio:16/8}}
+@media (prefers-reduced-motion:reduce){.portfolio-index[open]{animation:none}.portfolio-choice,.portfolio-choice-image img{transition:none}}
+
 .study{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--ink);color:var(--ivory);overflow:auto}
 .study::backdrop{background:rgba(0,0,0,.6)}
 .study[open]{display:grid;grid-template-rows:auto 1fr;animation:studyIn .7s var(--ease)}
