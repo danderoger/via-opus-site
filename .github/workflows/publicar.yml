@@ -1,0 +1,67 @@
+name: Publicar VIA OPUS 5.1
+
+# Publicação oficial: todo commit na branch main reconstrói a versão 5.1, roda os testes
+# e publica v5-1/site no GitHub Pages (https://viaopusconstrutora.com.br).
+# Pull requests apenas constroem e testam (sem publicar) e geram uma prévia para download.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    name: Construir e testar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Reconstruir v5-1/site a partir do próprio repositório
+        env:
+          VIA_OPUS_COMMIT: ${{ github.sha }}
+        run: |
+          export VIA_OPUS_DATA="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          node scripts/build-v51.mjs
+      - name: Testes de publicação (WhatsApp, SEO, CSP, recursos locais, avisos)
+        run: node check-v51.cjs
+      - name: Compatibilidade histórica (apenas informativa)
+        run: node check-historico.cjs
+      - name: Prévia para download (pull requests)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: previa-via-opus-site
+          path: v5-1/site
+      - name: Preparar Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - name: Empacotar site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: v5-1/site
+
+  publicar:
+    name: Publicar no GitHub Pages
+    if: github.event_name != 'pull_request'
+    needs: construir
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
