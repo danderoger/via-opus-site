@@ -589,3 +589,49 @@ textarea::placeholder{color:var(--d-faint)}
 .brick{position:absolute;background-repeat:no-repeat;box-shadow:inset 0 0 0 1px rgba(236,230,220,.85);animation:brick .75s cubic-bezier(.2,.9,.25,1) both}
 @keyframes brick{0%{transform:translate3d(0,-160%,0);opacity:0}45%{opacity:1}100%{transform:none;opacity:1}}
 .build.is-laid .brick-layer{opacity:0;transition:opacity .7s ease .15s}
+
+
+/* ── página direta do portfólio: todas as opções visíveis desde a abertura ── */
+.port-page-body{background:var(--ink);color:var(--ivory)}
+.port-page{min-height:100vh}
+.port-page-overview{display:flex;flex-direction:column;gap:clamp(18px,3vh,30px);min-height:100vh;min-height:100svh;padding:24px var(--gut) 32px}
+.port-page-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:16px;border-bottom:1px solid var(--d-line)}
+.port-page-logo{display:inline-flex;align-items:center;flex:none}
+.port-page-logo img{display:block;width:clamp(150px,21vw,250px);height:auto}
+.port-page-header nav{display:flex;align-items:center;gap:clamp(14px,3vw,38px)}
+.port-page-header nav a,.port-page-footer a{color:var(--ivory);font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.12em;text-transform:uppercase}
+.port-page-header nav a:hover,.port-page-footer a:hover{color:var(--cu-2)}
+.port-page-intro{margin-top:auto}
+.port-page-intro h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.8rem,6vw,6rem);letter-spacing:-.035em;line-height:1.04;margin:10px 0}
+.port-page-intro h1 em{color:var(--cu-2);font-weight:300}
+.port-page-intro>p:last-child{color:var(--d-muted);max-width:65ch;font-size:clamp(14px,1.35vw,17px)}
+.port-page-overview>.portfolio-index-note{margin-bottom:auto}
+.port-page-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:1000px){.port-page-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.port-page-details{background:var(--paper);color:var(--txt)}
+.port-detail{display:grid;gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(60px,9vw,130px) var(--gut);border-bottom:1px solid var(--line);scroll-margin-top:15px}
+.port-detail:nth-child(even){background:var(--paper-2)}
+.port-detail-image{aspect-ratio:3/2;overflow:hidden;border-radius:5px;background:var(--stone)}
+.port-detail-image img{display:block;width:100%;height:100%;object-fit:cover}
+.port-detail-copy{display:grid;gap:18px;align-content:center}
+.port-detail-copy .portfolio-index-kicker{color:var(--cu-3)}
+.port-detail-copy h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,4vw,4.4rem);line-height:1.04;letter-spacing:-.03em}
+.port-detail-sub{color:var(--cu-3);font-size:13px;letter-spacing:.1em}
+.port-detail-desc{color:var(--muted);max-width:49ch;line-height:1.6}
+.port-detail-action{display:inline-flex;justify-self:start;border-bottom:1px solid var(--cu);padding-bottom:5px;color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.04em;text-decoration:none}
+.port-detail-action:hover{color:var(--cu-3)}
+.port-detail-back{margin-top:24px;font-size:12px;color:var(--cu-3);text-decoration:none}
+.port-detail-back:hover{text-decoration:underline}
+.port-page-footer{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:35px var(--gut);background:var(--g1);color:var(--d-muted);font-size:12px;letter-spacing:.08em}
+@media (min-width:900px){.port-detail{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
+@media (max-width:599px){
+  .port-page-overview{padding:20px 16px 28px;gap:18px}
+  .port-page-header{gap:8px}
+  .port-page-logo img{width:130px}
+  .port-page-header nav{gap:12px}
+  .port-page-header nav a{font-size:10px;letter-spacing:.02em}
+  .port-page-intro h1{font-size:clamp(2.35rem,9vw,3.8rem)}
+  .port-detail{padding:48px 16px}
+  .port-page-footer{padding:22px 16px;flex-direction:column;align-items:flex-start}
+}
+
