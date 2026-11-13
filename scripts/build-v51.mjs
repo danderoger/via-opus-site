@@ -83,6 +83,16 @@ async function main() {
           <button type="button" class="link-arrow" data-open="${i}"><span>${e(L.ver)}</span>${ARROW}</button>
         </div>
       </article>`).join('');
+  const portfolioChoices = port.projetos.map((p, i) => `
+    <button class="portfolio-choice" type="button" data-portfolio-select="${i}" aria-label="Abrir estudo: ${e(p.titulo)}">
+      <span class="portfolio-choice-image"><img src="assets/${e(p.imagem)}-768.webp" width="768" height="512" alt="" decoding="async"></span>
+      <span class="portfolio-choice-meta">
+        <span class="portfolio-choice-num">${n2(i)}</span>
+        <span class="portfolio-choice-text"><small>${e(p.area)}</small><strong>${e(p.titulo)}</strong></span>
+        <span class="portfolio-choice-arrow" aria-hidden="true">↗</span>
+      </span>
+    </button>`).join('');
+
   const obrasData = port.projetos.map(p => ({
     id: p.id, area: p.area, titulo: p.titulo, subtitulo: p.subtitulo || '', descricao: p.descricao, alt: p.alt, imagem: p.imagem, ficha: p.ficha || null,
     traco: has(`assets/${p.imagem}-traco-1536.webp`) ? `assets/${p.imagem}-traco-1536.webp` : '',
@@ -190,6 +200,7 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
     <nav class="hd-nav" aria-label="Navegação principal">
         ${nav}
     </nav>
+    <a class="hd-portfolio" href="#obras" aria-haspopup="dialog" aria-controls="portfolio-index">Portfólio</a>
     ${portalA('hd-access')}
     ${waA('cabecalho', 'Orçamento', 'hd-cta')}
     <details class="mm">
@@ -387,6 +398,21 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
 </footer>
 
 ${waA('fixo', 'Orçamento', 'wa-float')}
+
+<dialog class="portfolio-index" id="portfolio-index" aria-labelledby="portfolio-index-title">
+  <div class="portfolio-index-inner">
+    <header class="portfolio-index-head">
+      <div>
+        <p class="portfolio-index-kicker">VIA OPUS · PORTFÓLIO</p>
+        <h2 id="portfolio-index-title">Escolha um estudo</h2>
+        <p class="portfolio-index-sub">Conheça as quatro opções. Selecione uma imagem para ver o estudo completo.</p>
+      </div>
+      <button class="portfolio-index-close" type="button" data-portfolio-close aria-label="Fechar portfólio">×</button>
+    </header>
+    <div class="portfolio-index-grid">${portfolioChoices}</div>
+    <p class="portfolio-index-note">${e(site.portfolio.aviso)}</p>
+  </div>
+</dialog>
 
 <dialog class="study" id="study" aria-labelledby="study-t">
   <div class="study-media">
