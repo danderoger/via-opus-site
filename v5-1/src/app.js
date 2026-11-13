@@ -345,7 +345,7 @@
     mm.addEventListener('toggle', () => { syncScrollLock(); if (mm.open) hd.classList.remove('is-hidden'); });
   }
   if (portfolioIndex && typeof portfolioIndex.showModal === 'function') {
-    $('.hd-nav a[href="#obras"], .hd-portfolio, .mm-panel a[href="#obras"], .elev a[href="#obras"]').forEach(a => {
+    $('.hd-nav a[href="#obras"], .mm-panel a[href="#obras"], .elev a[href="#obras"]').forEach(a => {
       a.addEventListener('click', ev => {
         ev.preventDefault();
         mm?.removeAttribute('open');
