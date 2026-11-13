@@ -263,7 +263,7 @@
   const floorLinks = $$('.elev a'), floorSecs = floorLinks.map(a => $(a.getAttribute('href')));
   const navLinks = $$('.hd-nav a'), navSecs = navLinks.map(a => $(a.getAttribute('href')));
   const themed = $$('[data-theme]');
-  let lastY = scrollY, ticking = false;
+  let ticking = false;
   const isDark = s => s && (s.dataset.theme === 'dark' || (s === cant && cant.classList.contains('is-dusk')));
 
   function onScroll() {
@@ -272,9 +272,8 @@
     cantUpdate();
     if (obra) { const cr = contato.getBoundingClientRect(); obra.mode(cr.top < h * .9 ? 'night' : 'build'); }
     hd.classList.toggle('is-solid', y > 40);
-    if (!$('.mm[open]') && y > h * .9 && y > lastY + 4) hd.classList.add('is-hidden');
-    if (y < lastY - 4) hd.classList.remove('is-hidden');
-    lastY = y;
+    // Menu acessível em qualquer ponto: cabeçalho não desaparece ao rolar.
+    hd.classList.remove('is-hidden');
     const under = themed.find(s => { const r = s.getBoundingClientRect(); return r.top <= 50 && r.bottom > 50; });
     hd.classList.toggle('on-dark', isDark(under));
     const mid = themed.find(s => { const r = s.getBoundingClientRect(); return r.top <= h / 2 && r.bottom > h / 2; });
@@ -338,11 +337,25 @@
     d.addEventListener('click', ev => { const a = ev.target.closest && ev.target.closest('a[href^="#"]'); if (a) smoothing = false; });
   }
 
-  /* ── menu do celular ── */
-  const mm = $('.mm');
+  /* ── menu e índice do portfólio (acesso direto sem passar pela maquete) ── */
+  const mm = $('.mm'), portfolioIndex = $('#portfolio-index'), studyDialog = $('#study');
+  const syncScrollLock = () => { d.body.style.overflow = (mm?.open || portfolioIndex?.open || studyDialog?.open) ? 'hidden' : ''; };
   if (mm) {
-    $$('a', mm).forEach(a => a.addEventListener('click', () => mm.removeAttribute('open')));
-    mm.addEventListener('toggle', () => { d.body.style.overflow = mm.open ? 'hidden' : ''; if (mm.open) hd.classList.remove('is-hidden'); });
+    $('a', mm).forEach(a => a.addEventListener('click', () => mm.removeAttribute('open')));
+    mm.addEventListener('toggle', () => { syncScrollLock(); if (mm.open) hd.classList.remove('is-hidden'); });
+  }
+  if (portfolioIndex && typeof portfolioIndex.showModal === 'function') {
+    $('.hd-nav a[href="#obras"], .hd-portfolio, .mm-panel a[href="#obras"], .elev a[href="#obras"]').forEach(a => {
+      a.addEventListener('click', ev => {
+        ev.preventDefault();
+        mm?.removeAttribute('open');
+        portfolioIndex.showModal();
+        syncScrollLock();
+      });
+    });
+    $('[data-portfolio-close]', portfolioIndex)?.addEventListener('click', () => portfolioIndex.close());
+    portfolioIndex.addEventListener('close', syncScrollLock);
+    portfolioIndex.addEventListener('click', ev => { if (ev.target === portfolioIndex) portfolioIndex.close(); });
   }
 
   /* ── cursor e botões magnéticos ── */
@@ -367,7 +380,7 @@
   /* ── estudo (diálogo) com View Transitions ── */
   const dlg = $('#study'), data = JSON.parse($('#obras-data').textContent || '[]');
   const cards = $$('.pf');
-  let idx = 0, fromImg = null;
+  let idx = 0, fromImg = null, returnToPortfolio = false;
   if (dlg && typeof dlg.showModal === 'function') {
     const foto = $('.study-foto', dlg), tr = $('.study-traco', dlg), tog = $('.study-toggle', dlg);
     const fill = i => {
@@ -386,22 +399,34 @@
       $('[data-s-count]', dlg).textContent = `${String(idx + 1).padStart(2, '0')} / ${String(data.length).padStart(2, '0')}`;
     };
     const vt = typeof d.startViewTransition === 'function' && !reduced;
-    const open = i => {
-      fromImg = cards[i] && $('.foto img', cards[i]);
-      if (!vt || !fromImg) { fill(i); dlg.showModal(); d.body.style.overflow = 'hidden'; return; }
+    const open = (i, fromOverview = false) => {
+      returnToPortfolio = fromOverview;
+      fromImg = fromOverview ? null : cards[i] && $('.foto img', cards[i]);
+      if (!vt || !fromImg) { fill(i); dlg.showModal(); syncScrollLock(); return; }
       fromImg.style.viewTransitionName = 'study-photo';
-      const tvt = d.startViewTransition(() => { fromImg.style.viewTransitionName = ''; fill(i); foto.style.viewTransitionName = 'study-photo'; dlg.showModal(); d.body.style.overflow = 'hidden'; });
+      const tvt = d.startViewTransition(() => { fromImg.style.viewTransitionName = ''; fill(i); foto.style.viewTransitionName = 'study-photo'; dlg.showModal(); syncScrollLock(); });
       tvt.finished.finally(() => { foto.style.viewTransitionName = ''; });
     };
     const close = () => {
+      if (returnToPortfolio && portfolioIndex) {
+        returnToPortfolio = false;
+        dlg.close();
+        portfolioIndex.showModal();
+        syncScrollLock();
+        return;
+      }
       const target = cards[idx] && $('.foto img', cards[idx]);
       if (!vt || !target || !dlg.open) { dlg.close(); return; }
       foto.style.viewTransitionName = 'study-photo';
       const tvt = d.startViewTransition(() => { foto.style.viewTransitionName = ''; dlg.close(); target.style.viewTransitionName = 'study-photo'; });
       tvt.finished.finally(() => { target.style.viewTransitionName = ''; });
     };
-    $$('[data-open]').forEach(b => b.addEventListener('click', ev => { ev.preventDefault(); open(+b.dataset.open); }));
-    dlg.addEventListener('close', () => { d.body.style.overflow = ''; });
+    $('[data-open]').forEach(b => b.addEventListener('click', ev => { ev.preventDefault(); open(+b.dataset.open); }));
+    if (portfolioIndex) $('[data-portfolio-select]', portfolioIndex).forEach(b => b.addEventListener('click', () => {
+      portfolioIndex.close();
+      open(+b.dataset.portfolioSelect, true);
+    }));
+    dlg.addEventListener('close', syncScrollLock);
     dlg.addEventListener('cancel', ev => { ev.preventDefault(); close(); });
     $('[data-s-close]', dlg).addEventListener('click', close);
     $('[data-s-prev]', dlg).addEventListener('click', () => fill(idx - 1));
