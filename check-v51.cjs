@@ -48,7 +48,7 @@ ok(!/\sstyle="/.test(html), 'Atributo style inline (bloqueado pela CSP)');
 ok(![...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>/g)].some(m => !/type="application\/(ld\+)?json"/.test(m[1])), 'Script inline executável (bloqueado pela CSP)');
 
 // IA identificada
-ok(html.includes(site.rodape.avisoIA), 'Aviso de IA do rodapé ausente');
+ok(html.includes(site.rodape.credito.nome) && html.includes(site.rodape.credito.prefixo), 'Crédito Konan Tech ausente no rodapé');
 ok(html.includes(site.canteiro.selo) && html.includes(site.canteiro.aviso), 'Aviso da maquete 3D ilustrativa ausente');
 ok(fs.existsSync(path.join(dir, 'assets/js/three.min.js')) && fs.existsSync(path.join(dir, 'obra3d.js')), 'Arquivos da maquete 3D ausentes');
 ok(/fallback|has-3d/.test(fs.readFileSync(path.join(dir, 'styles.css'), 'utf8')), 'Sem modo alternativo para quando não há 3D');
