@@ -54,6 +54,14 @@ async function main() {
   const level = (pav, cota) => `<div class="level" data-reveal aria-hidden="true"><span>${e(pav)}</span><i></i><span>${e(cota)}</span></div>`;
 
   const L = port.rotulos, k = site.canteiro, x = k.explorar;
+  const sistema = site.sistema;
+  const sistemaUrl = sistema.url ? new URL(sistema.url) : null;
+  if (sistemaUrl && (sistemaUrl.protocol !== 'https:' || sistemaUrl.username || sistemaUrl.password || sistemaUrl.search || sistemaUrl.hash)) {
+    throw new Error('sistema.url deve ser um endereço HTTPS de login, sem credenciais, parâmetros ou fragmento.');
+  }
+  const login = classe => sistemaUrl
+    ? `<a class="login-cta ${classe}" href="${e(sistemaUrl.href)}" rel="noreferrer">${e(sistema.rotulo)}</a>`
+    : `<button class="login-cta ${classe}" type="button" disabled>${e(sistema.indisponivel)}</button>`;
   const nav = site.navegacao.map(i => `<a href="#${e(i.destino)}"><span>${e(i.rotulo)}</span></a>`).join('\n        ');
   const mnav = site.navegacao.map((i, j) => `<li><a href="#${e(i.destino)}"><small>${n2(j)}</small>${e(i.rotulo)}</a></li>`).join('\n          ');
   const elev = site.pavimentos.map(f => `<li><a href="#${e(f.destino)}"><b>${e(f.sigla)}</b><span>${e(f.rotulo)}</span></a></li>`).join('');
@@ -188,6 +196,7 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
     </a>
     <nav class="hd-nav" aria-label="Navegação principal">
         ${nav}
+        ${login('hd-login')}
     </nav>
     ${waA('cabecalho', 'Orçamento', 'hd-cta')}
     <details class="mm">
@@ -196,7 +205,10 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
         <ol>
           ${mnav}
         </ol>
-        ${waA('cabecalho', o.botao, 'btn btn-copper mm-wa')}
+        <div class="mm-actions">
+          ${login('btn mm-login')}
+          ${waA('cabecalho', o.botao, 'btn btn-copper mm-wa')}
+        </div>
         <p class="mm-foot">${e(k.regiao)}</p>
       </nav>
     </details>

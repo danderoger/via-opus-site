@@ -12,9 +12,33 @@ const fails = [];
 const ok = (cond, msg) => { if (!cond) fails.push(msg); };
 const dec = s => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 
+// Login no sistema: apenas os dois controles previstos podem usar o endereço externo.
+const acesso = site.sistema.url ? new URL(site.sistema.url) : null;
+const tipoLogin = acesso ? 'a' : 'button';
+ok(/href="#contato"[\s\S]*class="login-cta hd-login"[\s\S]*<\/nav>\s*<a class="hd-cta"/.test(html), 'Login deve ficar entre Contato e Orçamento');
+ok(js.includes('.hd-nav a[href^="#"]'), 'Rolagem deve selecionar somente âncoras internas');
+const controlesLogin = [...html.matchAll(/<(a|button) class="login-cta (hd-login|btn mm-login)"[^>]*>/g)];
+ok(controlesLogin.length === 2, 'Esperado um controle de login no cabeçalho e outro no menu do celular');
+for (const classe of ['hd-login', 'btn mm-login']) {
+  const controle = controlesLogin.find(m => m[2] === classe);
+  ok(controle?.[1] === tipoLogin, 'Controle de login incorreto: ' + classe);
+  if (!controle) continue;
+  if (acesso) {
+    ok(acesso.protocol === 'https:' && !acesso.username && !acesso.password && !acesso.search && !acesso.hash, 'Endereço de login inválido');
+    ok(dec(controle[0].match(/\bhref="([^"]*)"/)?.[1] ?? '') === acesso.href, 'Destino de login incorreto: ' + classe);
+    ok(controle[0].includes('rel="noreferrer"'), 'Login deve omitir o referenciador');
+  } else {
+    ok(controle[0].endsWith(' type="button" disabled>'), 'Login sem endereço deve ficar desativado: ' + classe);
+  }
+}
+
 // recursos locais
 const refs = new Set();
-for (const m of html.matchAll(/\b(?:src|href)="([^"#][^"]*)"/g)) refs.add(dec(m[1]));
+const htmlRecursos = acesso
+  ? html.replace(/<a class="login-cta (?:hd-login|btn mm-login)" href="([^"]+)" rel="noreferrer">/g,
+    (tag, href) => dec(href) === acesso.href ? '' : tag)
+  : html;
+for (const m of htmlRecursos.matchAll(/\b(?:src|href)="([^"#][^"]*)"/g)) refs.add(dec(m[1]));
 for (const m of html.matchAll(/srcset="([^"]+)"/g)) m[1].split(',').forEach(x => refs.add(x.trim().split(/\s+/)[0]));
 for (const m of css.matchAll(/url\(([^)]+)\)/g)) refs.add(m[1].replace(/["']/g, ''));
 const own = (site.meta.url || '').trim();

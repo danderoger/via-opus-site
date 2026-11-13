@@ -98,8 +98,12 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 .hd-nav a:hover,.hd-nav a.is-on{opacity:1}
 .hd-nav a::before{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--cu);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
 .hd-nav a:hover::before,.hd-nav a.is-on::before{transform:scaleX(1);transform-origin:left}
-.hd-cta{display:none;align-items:center;gap:10px;height:44px;padding:0 20px;border:1px solid currentColor;border-radius:999px;text-decoration:none;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;transition:background .4s,color .4s,border-color .4s}
+.hd-cta{display:none;align-items:center;gap:10px;height:44px;padding:0 20px;border:1px solid currentColor;border-radius:999px;text-decoration:none;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;white-space:nowrap;transition:background .4s,color .4s,border-color .4s}
 .hd-cta:hover{background:var(--cu);border-color:var(--cu);color:var(--ivory)}
+.login-cta{background:transparent}
+.mm-login{border-color:var(--cu)}
+.mm-login:not(:disabled):hover{background:var(--cu);color:var(--ink)}
+.login-cta:disabled{opacity:.75;cursor:default}
 .mm summary{list-style:none;display:flex;align-items:center;gap:12px;cursor:pointer;height:44px;padding:0 4px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;position:relative;z-index:2}
 .mm summary::-webkit-details-marker{display:none}
 .mm summary i{width:26px;height:9px;position:relative}
@@ -114,10 +118,16 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 .mm-panel li:nth-child(2){animation-delay:.14s}.mm-panel li:nth-child(3){animation-delay:.2s}.mm-panel li:nth-child(4){animation-delay:.26s}.mm-panel li:nth-child(5){animation-delay:.32s}
 .mm-panel a:not(.btn){display:flex;align-items:baseline;gap:16px;text-decoration:none;font-family:var(--serif);font-weight:300;font-size:clamp(2.1rem,9.5vw,3.3rem);line-height:1.15;letter-spacing:-.02em}
 .mm-panel small{font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:var(--cu-2)}
-.mm-wa{align-self:flex-start}
+.mm-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
 .mm-foot{margin-top:auto;color:var(--d-faint);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
 @keyframes mmIn{to{opacity:1;transform:none}}
-@media (min-width:1100px){.hd-nav{display:flex}.hd-cta{display:inline-flex}.mm{display:none}}
+@media (min-width:1320px){
+  .hd-in{gap:20px}
+  .hd-nav{display:flex;gap:20px}
+  .hd-nav a{white-space:nowrap}
+  .hd-cta{display:inline-flex}
+  .mm{display:none}
+}
 
 /* ── elevador (pavimentos) ── */
 .elev{display:none}
@@ -473,7 +483,7 @@ textarea::placeholder{color:var(--d-faint)}
 .wa-float{position:fixed;right:16px;bottom:16px;z-index:60;display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border-radius:999px;background:var(--cu);color:var(--ivory);text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 14px 40px -12px rgba(0,0,0,.5);transition:transform .6s var(--ease),opacity .4s}
 .js .wa-float{transform:translateY(140%);opacity:0}
 .js .wa-float.is-on{transform:none;opacity:1}
-@media (min-width:1100px){.wa-float{display:none}}
+@media (min-width:1320px){.wa-float{display:none}}
 
 /* ── estudo (diálogo) ── */
 .study{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--ink);color:var(--ivory);overflow:auto}

@@ -261,7 +261,7 @@
   /* ── cabeçalho, elevador, progresso, rolagem ── */
   const hd = $('.hd'), bar = $('.progress i'), float = $('.wa-float'), elev = $('.elev'), floorNow = $('[data-floor-now]');
   const floorLinks = $$('.elev a'), floorSecs = floorLinks.map(a => $(a.getAttribute('href')));
-  const navLinks = $$('.hd-nav a'), navSecs = navLinks.map(a => $(a.getAttribute('href')));
+  const navLinks = $$('.hd-nav a[href^="#"]'), navSecs = navLinks.map(a => $(a.getAttribute('href')));
   const themed = $$('[data-theme]');
   let lastY = scrollY, ticking = false;
   const isDark = s => s && (s.dataset.theme === 'dark' || (s === cant && cant.classList.contains('is-dusk')));

@@ -17,6 +17,11 @@
     "mensagemEstudo": "Olá, Rafaela! Vi o estudo \"{titulo}\" ({area}) no site da VIA OPUS e quero algo parecido. Pode me atender?",
     "origem": "Origem: site VIA OPUS · {origem}"
   },
+  "sistema": {
+    "rotulo": "Login",
+    "indisponivel": "Login · Em breve",
+    "url": "https://via-opus-obra-em-dia.lovable.app/"
+  },
   "navegacao": [
     {
       "destino": "obras",
