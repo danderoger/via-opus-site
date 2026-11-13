@@ -15,6 +15,8 @@ const dec = s => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 // Login no sistema: apenas os dois controles previstos podem usar o endereço externo.
 const acesso = site.sistema.url ? new URL(site.sistema.url) : null;
 const tipoLogin = acesso ? 'a' : 'button';
+ok(/href="#contato"[\s\S]*class="login-cta hd-login"[\s\S]*<\/nav>\s*<a class="hd-cta"/.test(html), 'Login deve ficar entre Contato e Orçamento');
+ok(js.includes('.hd-nav a[href^="#"]'), 'Rolagem deve selecionar somente âncoras internas');
 const controlesLogin = [...html.matchAll(/<(a|button) class="login-cta (hd-login|btn mm-login)"[^>]*>/g)];
 ok(controlesLogin.length === 2, 'Esperado um controle de login no cabeçalho e outro no menu do celular');
 for (const classe of ['hd-login', 'btn mm-login']) {

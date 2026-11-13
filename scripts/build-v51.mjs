@@ -196,9 +196,9 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
     </a>
     <nav class="hd-nav" aria-label="Navegação principal">
         ${nav}
+        ${login('hd-login')}
     </nav>
     ${waA('cabecalho', 'Orçamento', 'hd-cta')}
-    ${login('hd-login')}
     <details class="mm">
       <summary aria-label="Abrir menu"><span class="mm-l">Menu</span><i aria-hidden="true"></i></summary>
       <nav class="mm-panel" aria-label="Navegação (celular)">
