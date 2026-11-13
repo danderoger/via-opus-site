@@ -376,10 +376,10 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
   <div class="wrap">
     <img class="ft-logo" src="assets/via-opus-960.webp" srcset="assets/via-opus-640.webp 640w, assets/via-opus-960.webp 960w" sizes="(min-width: 900px) 420px, 70vw" width="960" height="526" alt="Logomarca VIA OPUS — Engenharia &amp; Construções" loading="lazy" decoding="async">
     <div class="ft-cols">
-      <p>${e(site.rodape.regiao)}<br>WhatsApp ${e(c.whatsappExibir)} · ${e(c.nome)}</p>
-      <div><p class="ft-ia">${e(site.rodape.avisoIA)}</p><p>${e(site.rodape.nota)}</p>${credHtml}</div>
+      <div><p>${e(site.rodape.regiao)}<br>WhatsApp ${e(c.whatsappExibir)} · ${e(c.nome)}</p>${credHtml}</div>
       <p class="ft-end"><a class="link-arrow" href="#canteiro"><span>${e(site.rodape.voltar)}</span>${ARROW}</a><span class="ft-ver">${e(site.meta.versao)}</span></p>
     </div>
+    <p class="ft-credit"><span>${e(site.rodape.credito.prefixo)}</span> <b>${e(site.rodape.credito.nome)}</b></p>
   </div>
 </footer>
 
