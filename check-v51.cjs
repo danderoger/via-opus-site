@@ -19,6 +19,7 @@ for (const m of html.matchAll(/srcset="([^"]+)"/g)) m[1].split(',').forEach(x =>
 for (const m of css.matchAll(/url\(([^)]+)\)/g)) refs.add(m[1].replace(/["']/g, ''));
 const own = (site.meta.url || '').trim();
 for (const r of refs) {
+  if (r === site.portal.url) continue;
   if (/^https:\/\/wa\.me\//.test(r)) continue;
   if (own && r.startsWith(own)) continue;
   if (/^(https?:)?\/\//.test(r) || /^data:/.test(r)) { fails.push('Recurso externo: ' + r); continue; }
@@ -31,6 +32,14 @@ for (const m of JSON.parse(html.match(/<script type="application\/json" id="obra
   ok(m.wa.startsWith('https://wa.me/' + site.contato.whatsapp + '?text='), 'WhatsApp do estudo fora da Rafaela: ' + m.id);
   ok(decodeURIComponent(m.wa.split('text=')[1]).includes('Origem: site VIA OPUS'), 'Estudo sem origem: ' + m.id);
 }
+
+// Área do Cliente: endereço HTTPS configurado e links no desktop/celular
+const portal = new URL(site.portal.url);
+const domain = portal.hostname;
+ok(portal.protocol === 'https:' && (domain.endsWith('.lovable.app') || domain === 'viaopusconstrutora.com.br' || domain.endsWith('.viaopusconstrutora.com.br')), 'Endereço inseguro ou inesperado da Área do Cliente');
+const portalLinks = [...html.matchAll(/class="(?:hd-access|mm-access)" href="([^"]+)"/g)].map(m => dec(m[1]));
+ok(portalLinks.length === 2 && portalLinks.every(h => h === site.portal.url), 'Área do Cliente ausente no desktop/celular ou com URL incorreta');
+ok(html.includes(site.portal.rotulo), 'Rótulo da Área do Cliente ausente');
 
 // WhatsApp
 const was = [...html.matchAll(/href="(https:\/\/wa\.me\/[^"]+)"/g)].map(m => dec(m[1]));
