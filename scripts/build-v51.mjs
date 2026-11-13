@@ -38,6 +38,7 @@ async function fontsCss() {
 
 async function main() {
   const [site, port] = await Promise.all([readJSON(path.join(V5, 'content/site.json')), readJSON(path.join(V5, 'content/portfolio.json'))]);
+  const assetVersion = String(process.env.VIA_OPUS_COMMIT || Date.now()).slice(0,12).replace(/[^a-z0-9.-]/gi, '');
   const has = rel => existsSync(path.join(V5, rel));
   const missing = [];
   const need = key => { for (const w of [768, 1280, 1536]) if (!has(`assets/${key}-${w}.webp`)) missing.push(`${key}-${w}.webp`); };
@@ -165,12 +166,12 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
 <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="icon" href="assets/via-opus-icone-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="styles.css">
-<script src="boot.js"></script>
+<link rel="stylesheet" href="fonts.css?v=${assetVersion}">
+<link rel="stylesheet" href="styles.css?v=${assetVersion}">
+<script src="boot.js?v=${assetVersion}"></script>
 <script src="assets/js/three.min.js" defer></script>
-<script src="obra3d.js" defer></script>
-<script src="app.js" defer></script>
+<script src="obra3d.js?v=${assetVersion}" defer></script>
+<script src="app.js?v=${assetVersion}" defer></script>
 <script type="application/ld+json">${jsonld}</script>
 </head>
 <body>
