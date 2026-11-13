@@ -56,9 +56,10 @@ async function main() {
   const level = (pav, cota) => `<div class="level" data-reveal aria-hidden="true"><span>${e(pav)}</span><i></i><span>${e(cota)}</span></div>`;
 
   const L = port.rotulos, k = site.canteiro, x = k.explorar;
-  const nav = site.navegacao.map(i => `<a href="#${e(i.destino)}"><span>${e(i.rotulo)}</span></a>`).join('\n        ');
-  const mnav = site.navegacao.map((i, j) => `<li><a href="#${e(i.destino)}"><small>${n2(j)}</small>${e(i.rotulo)}</a></li>`).join('\n          ');
-  const elev = site.pavimentos.map(f => `<li><a href="#${e(f.destino)}"><b>${e(f.sigla)}</b><span>${e(f.rotulo)}</span></a></li>`).join('');
+  const navHref = destino => destino === 'obras' ? 'portfolio.html' : `#${e(destino)}`;
+  const nav = site.navegacao.map(i => `<a href="${navHref(i.destino)}"><span>${e(i.rotulo)}</span></a>`).join('\n        ');
+  const mnav = site.navegacao.map((i, j) => `<li><a href="${navHref(i.destino)}"><small>${n2(j)}</small>${e(i.rotulo)}</a></li>`).join('\n          ');
+  const elev = site.pavimentos.map(f => `<li><a href="${navHref(f.destino)}"><b>${e(f.sigla)}</b><span>${e(f.rotulo)}</span></a></li>`).join('');
   const etapas = k.etapas.map((s, i) => `<li><span class="ce-n">${n2(i)}</span><span class="ce-t">${e(s.titulo)}</span><span class="ce-d">${e(s.descricao)}</span></li>`).join('');
   const pontos = k.pontos.map(pt => `<div class="hs" data-hs="${e(pt.id)}"><button type="button" class="hs-b" aria-expanded="false" aria-controls="hs-${e(pt.id)}"><span class="sr">${e(pt.titulo)}</span><i aria-hidden="true"></i></button><div class="hs-tip" id="hs-${e(pt.id)}" role="note"><b>${e(pt.titulo)}</b><span>${e(pt.texto)}</span></div></div>`).join('');
   const andares = k.andares.map((a, i) => `<span class="fl" data-fl="${i}">${e(a)}</span>`).join('');
@@ -93,6 +94,29 @@ async function main() {
         <span class="portfolio-choice-arrow" aria-hidden="true">↗</span>
       </span>
     </button>`).join('');
+
+  const portfolioPageCards = port.projetos.map((p, i) => `
+    <a class="portfolio-choice" href="#estudo-${e(p.id)}" aria-label="Ver o estudo: ${e(p.titulo)}">
+      <span class="portfolio-choice-image"><img src="assets/${e(p.imagem)}-768.webp" width="768" height="512" alt="" loading="eager" decoding="async"></span>
+      <span class="portfolio-choice-meta">
+        <span class="portfolio-choice-num">${n2(i)}</span>
+        <span class="portfolio-choice-text"><small>${e(p.area)}</small><strong>${e(p.titulo)}</strong></span>
+        <span class="portfolio-choice-arrow" aria-hidden="true">↗</span>
+      </span>
+    </a>`).join('');
+  const portfolioPageDetails = port.projetos.map((p, i) => `
+    <article class="port-detail" id="estudo-${e(p.id)}">
+      <div class="port-detail-image"><img src="assets/${e(p.imagem)}-1280.webp" width="1280" height="853" alt="${e(p.alt)}" loading="lazy" decoding="async"></div>
+      <div class="port-detail-copy">
+        <p class="portfolio-index-kicker">${n2(i)} · ${e(p.area)} · ESTUDO ILUSTRATIVO</p>
+        <h2>${e(p.titulo)}</h2>
+        ${p.subtitulo ? `<p class="port-detail-sub">${e(p.subtitulo)}</p>` : ''}
+        <p class="port-detail-desc">${e(p.descricao)}</p>
+        <a class="port-detail-action" href="assets/${e(p.imagem)}-1536.webp" target="_blank" rel="noopener noreferrer">Ampliar imagem ↗</a>
+        <a class="port-detail-action" href="${e(waHref(fill(c.mensagemEstudo, { titulo: p.titulo, area: p.area }), 'estudo', { titulo: p.titulo }))}" target="_blank" rel="noopener noreferrer">Conversar sobre este estudo ↗</a>
+        <a class="port-detail-back" href="#todos">↑ Ver todos os projetos</a>
+      </div>
+    </article>`).join('');
 
   const obrasData = port.projetos.map(p => ({
     id: p.id, area: p.area, titulo: p.titulo, subtitulo: p.subtitulo || '', descricao: p.descricao, alt: p.alt, imagem: p.imagem, ficha: p.ficha || null,
@@ -201,7 +225,7 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
     <nav class="hd-nav" aria-label="Navegação principal">
         ${nav}
     </nav>
-    <a class="hd-portfolio" href="#obras" aria-haspopup="dialog" aria-controls="portfolio-index">Portfólio</a>
+    <a class="hd-portfolio" href="portfolio.html" aria-haspopup="dialog" aria-controls="portfolio-index">Portfólio</a>
     ${portalA('hd-access')}
     ${waA('cabecalho', 'Orçamento', 'hd-cta')}
     <details class="mm">
@@ -451,10 +475,46 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
 </html>
 `;
 
+  const portfolioPageHtml = `<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfólio — VIA OPUS Engenharia & Construções</title>
+<meta name="description" content="Conheça os estudos de arquitetura, construção e reforma da VIA OPUS. Visualize todos os projetos e explore os detalhes.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${e(site.meta.url)}portfolio.html">
+<meta http-equiv="Content-Security-Policy" content="${CSP}">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="fonts.css?v=${assetVersion}">
+<link rel="stylesheet" href="styles.css?v=${assetVersion}">
+</head>
+<body class="port-page-body">
+<main id="todos" class="port-page">
+  <section class="port-page-overview" aria-labelledby="portfolio-page-title">
+    <header class="port-page-header">
+      <a class="port-page-logo" href="./" aria-label="Voltar ao site VIA OPUS"><img src="assets/via-opus-nome-480.webp" width="480" height="58" alt="VIA OPUS"></a>
+      <nav aria-label="Navegação"><a href="./">← Voltar ao site</a><a href="${e(site.portal.url)}" target="_blank" rel="noopener noreferrer">Área do Cliente ↗</a></nav>
+    </header>
+    <div class="port-page-intro">
+      <p class="portfolio-index-kicker">VIA OPUS · ENGENHARIA & CONSTRUÇÕES</p>
+      <h1 id="portfolio-page-title">Nosso <em>portfólio.</em></h1>
+      <p>Explore os quatro estudos disponíveis. Selecione uma opção para visualizar os detalhes.</p>
+    </div>
+    <div class="portfolio-index-grid port-page-grid">${portfolioPageCards}</div>
+    <p class="portfolio-index-note">${e(site.portfolio.aviso)}</p>
+  </section>
+  <section class="port-page-details" aria-label="Detalhes dos estudos">${portfolioPageDetails}</section>
+  <footer class="port-page-footer"><span>VIA OPUS · Engenharia & Construções</span><a href="./">Voltar ao início do site ↑</a></footer>
+</main>
+</body>
+</html>`;
+
   await fs.rm(OUT, { recursive: true, force: true });
   await fs.mkdir(path.join(OUT, 'assets', 'js'), { recursive: true });
   await fs.mkdir(path.join(OUT, 'fonts'), { recursive: true });
   await fs.writeFile(path.join(OUT, 'index.html'), html);
+  await fs.writeFile(path.join(OUT, 'portfolio.html'), portfolioPageHtml);
   for (const f of ['styles.css', 'app.js', 'boot.js', 'obra3d.js']) await fs.copyFile(path.join(V5, 'src', f), path.join(OUT, f));
   await fs.copyFile(path.join(V5, 'src/vendor/three.min.js'), path.join(OUT, 'assets/js/three.min.js'));
   await fs.copyFile(path.join(V5, 'src/vendor/THREE-LICENSE.txt'), path.join(OUT, 'assets/js/THREE-LICENSE.txt'));
