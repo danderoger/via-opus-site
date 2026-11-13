@@ -101,7 +101,7 @@ async function main() {
       <span class="portfolio-choice-meta">
         <span class="portfolio-choice-num">${n2(i)}</span>
         <span class="portfolio-choice-text"><small>${e(p.area)}</small><strong>${e(p.titulo)}</strong></span>
-        <span class="portfolio-choice-arrow" aria-hidden="true">↗</span>
+        <span class="portfolio-choice-arrow" aria-hidden="true">${ARROW}</span>
       </span>
     </a>`).join('');
   const portfolioPageDetails = port.projetos.map((p, i) => `
@@ -112,9 +112,9 @@ async function main() {
         <h2>${e(p.titulo)}</h2>
         ${p.subtitulo ? `<p class="port-detail-sub">${e(p.subtitulo)}</p>` : ''}
         <p class="port-detail-desc">${e(p.descricao)}</p>
-        <a class="port-detail-action" href="assets/${e(p.imagem)}-1536.webp" target="_blank" rel="noopener noreferrer">Ampliar imagem ↗</a>
-        <a class="port-detail-action" href="${e(waHref(fill(c.mensagemEstudo, { titulo: p.titulo, area: p.area }), 'estudo', { titulo: p.titulo }))}" target="_blank" rel="noopener noreferrer">Conversar sobre este estudo ↗</a>
-        <a class="port-detail-back" href="#todos">↑ Ver todos os projetos</a>
+        <a class="port-detail-action" href="assets/${e(p.imagem)}-1536.webp" target="_blank" rel="noopener noreferrer">Ampliar imagem ${ARROW}</a>
+        <a class="port-detail-action" href="${e(waHref(fill(c.mensagemEstudo, { titulo: p.titulo, area: p.area }), 'estudo', { titulo: p.titulo }))}" target="_blank" rel="noopener noreferrer">Conversar sobre este estudo ${ARROW}</a>
+        <a class="port-detail-back" href="#todos">Ver todos os projetos</a>
       </div>
     </article>`).join('');
 
@@ -494,7 +494,7 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
   <section class="port-page-overview" aria-labelledby="portfolio-page-title">
     <header class="port-page-header">
       <a class="port-page-logo" href="./" aria-label="Voltar ao site VIA OPUS"><img src="assets/via-opus-nome-480.webp" width="480" height="58" alt="VIA OPUS"></a>
-      <nav aria-label="Navegação"><a href="./">← Voltar ao site</a><a href="${e(site.portal.url)}" target="_blank" rel="noopener noreferrer">Área do Cliente ↗</a></nav>
+      <nav aria-label="Navegação"><a href="./">← Voltar ao site</a><a href="${e(site.portal.url)}" target="_blank" rel="noopener noreferrer">Área do Cliente</a></nav>
     </header>
     <div class="port-page-intro">
       <p class="portfolio-index-kicker">VIA OPUS · ENGENHARIA & CONSTRUÇÕES</p>
