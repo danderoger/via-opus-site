@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ece6dc">
+<meta name="view-transition" content="same-origin">
+<meta name="description" content="VIA OPUS — Engenharia &amp; Construções. Construção e reformas residenciais, de saúde, academias e espaços comerciais no Distrito Federal, em Goiás e no Entorno. Peça seu orçamento pelo WhatsApp.">
+<title>VIA OPUS — Engenharia &amp; Construções</title>
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="VIA OPUS">
+<meta property="og:title" content="VIA OPUS — Engenharia &amp; Construções">
+<meta property="og:description" content="VIA OPUS — Engenharia &amp; Construções. Construção e reformas residenciais, de saúde, academias e espaços comerciais no Distrito Federal, em Goiás e no Entorno. Peça seu orçamento pelo WhatsApp.">
+<meta property="og:image" content="assets/via-opus-compartilhar-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/via-opus-icone-128.webp" type="image/webp">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<script src="boot.js"></script>
+<script src="assets/js/three.min.js" defer></script>
+<script src="obra3d.js" defer></script>
+<script src="app.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","name":"VIA OPUS — Engenharia & Construções","alternateName":"VIA OPUS","description":"VIA OPUS — Engenharia & Construções. Construção e reformas residenciais, de saúde, academias e espaços comerciais no Distrito Federal, em Goiás e no Entorno. Peça seu orçamento pelo WhatsApp.","telephone":"+556185189004","areaServed":[{"@type":"AdministrativeArea","name":"Distrito Federal"},{"@type":"AdministrativeArea","name":"Goiás"}],"founder":[{"@type":"Person","name":"Fernando Taveira"},{"@type":"Person","name":"Rafaela Lacerda","jobTitle":"Arquiteta"}],"contactPoint":[{"@type":"ContactPoint","contactType":"orçamentos","telephone":"+556185189004","availableLanguage":"pt-BR"}]}</script>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+<canvas class="stage3d" aria-hidden="true"></canvas>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-in">
+    <svg class="loader-draw" viewBox="0 0 120 150" width="120" height="150" fill="none" stroke="currentColor" stroke-width="1.2">
+      <path pathLength="1" d="M10 140h100"/><path pathLength="1" d="M22 140V18h76v122"/><path pathLength="1" d="M18 18h84M22 42h76M22 66h76M22 90h76M22 114h76"/>
+      <path pathLength="1" d="M30 24h22v12H30zM30 48h22v12H30zM30 72h22v12H30zM30 96h22v12H30zM70 24h20v12H70zM70 48h20v12H70zM70 72h20v12H70zM70 96h20v12H70zM34 118h16v22H34zM66 120h26v20H66z"/>
+      <path pathLength="1" d="M58 42v72M61 42v72M64 42v72"/>
+    </svg>
+    <p><span>Preparando o canteiro</span> <b data-pct>0</b>%</p>
+  </div>
+</div>
+<div class="progress" aria-hidden="true"><i></i></div>
+<div class="cursor" aria-hidden="true"><span></span></div>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="hd">
+  <div class="hd-in">
+    <a class="hd-brand" href="#canteiro" aria-label="VIA OPUS — Engenharia &amp; Construções. Ir para o início">
+      <img class="hd-mono" src="assets/via-opus-monograma-240.webp" width="240" height="123" alt="">
+      <img class="hd-word" src="assets/via-opus-nome-480.webp" width="480" height="58" alt="">
+    </a>
+    <nav class="hd-nav" aria-label="Navegação principal">
+        <a href="#obras"><span>Portfólio</span></a>
+        <a href="#transformacao"><span>Antes e depois</span></a>
+        <a href="#processo"><span>Como funciona</span></a>
+        <a href="#historia"><span>Nossa história</span></a>
+        <a href="#contato"><span>Contato</span></a>
+    </nav>
+    <a class="hd-cta" href="https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vim%20pelo%20site%20da%20VIA%20OPUS%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20cabe%C3%A7alho" target="_blank" rel="noopener noreferrer"><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Orçamento</span></a>
+    <details class="mm">
+      <summary aria-label="Abrir menu"><span class="mm-l">Menu</span><i aria-hidden="true"></i></summary>
+      <nav class="mm-panel" aria-label="Navegação (celular)">
+        <ol>
+          <li><a href="#obras"><small>01</small>Portfólio</a></li>
+          <li><a href="#transformacao"><small>02</small>Antes e depois</a></li>
+          <li><a href="#processo"><small>03</small>Como funciona</a></li>
+          <li><a href="#historia"><small>04</small>Nossa história</a></li>
+          <li><a href="#contato"><small>05</small>Contato</a></li>
+        </ol>
+        <a class="btn btn-copper mm-wa" href="https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vim%20pelo%20site%20da%20VIA%20OPUS%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20cabe%C3%A7alho" target="_blank" rel="noopener noreferrer"><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Falar com a Rafaela no WhatsApp</span></a>
+        <p class="mm-foot">Distrito Federal · Goiás · Entorno</p>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<nav class="elev" aria-label="Pavimentos">
+  <p class="elev-now" aria-hidden="true"><small>PAV.</small><b data-floor-now>T</b></p>
+  <ol><li><a href="#canteiro"><b>T</b><span>Canteiro</span></a></li><li><a href="#obras"><b>01</b><span>Portfólio</span></a></li><li><a href="#transformacao"><b>02</b><span>Antes e depois</span></a></li><li><a href="#processo"><b>03</b><span>Como funciona</span></a></li><li><a href="#historia"><b>04</b><span>Nossa história</span></a></li><li><a href="#contato"><b>C</b><span>Cobertura</span></a></li></ol>
+</nav>
+
+<main id="conteudo">
+
+<section id="canteiro" class="cant" data-theme="light" aria-labelledby="cant-t">
+  <div class="cant-sticky">
+    <picture class="cant-poster">
+      <source media="(max-aspect-ratio: 1/1)" srcset="assets/maquete-final-900.webp">
+      <img src="assets/maquete-final-1920.webp" width="1920" height="1080" alt="Maquete 3D ilustrativa de um prédio de quatro pavimentos ao anoitecer, com janelas iluminadas, ripas de madeira e volume em pedra." decoding="async">
+    </picture>
+    <div class="cant-drag" aria-hidden="true"></div>
+    <div class="cant-ui">
+      <div class="cant-hero wrap">
+        <p class="kicker"><span class="kline" aria-hidden="true"></span>Engenharia &amp; Construções</p>
+        <h1 class="cant-t" id="cant-t" data-vf><span class="ln"><span>Precisão que</span></span> <span class="ln"><em>ganha forma.</em></span></h1>
+        <p class="cant-desc">Role a página e veja uma obra sair do papel. No fim, gire a maquete, veja de dia ou à noite e abra os pavimentos.</p>
+        <p class="cant-actions">
+          <a class="btn btn-ink" href="https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vim%20pelo%20site%20da%20VIA%20OPUS%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20bot%C3%A3o%20da%20abertura" target="_blank" rel="noopener noreferrer" data-magnetic><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Pedir orçamento</span></a>
+          <span class="cant-dica" aria-hidden="true"><i></i>Role para construir</span>
+        </p>
+      </div>
+      <div class="cant-stage wrap" aria-hidden="true">
+        <p class="st-k">Etapa <b data-st-n>01</b><small>/06</small></p>
+        <p class="st-t" data-st-t>Projeto</p>
+        <p class="st-d" data-st-d>Tudo começa no papel: medidas, ideias e um plano claro para a obra.</p>
+      </div>
+      <div class="cant-final wrap">
+        <p class="cant-final-t">A próxima obra pode ser a sua.</p>
+        <a class="btn btn-copper" href="https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vim%20pelo%20site%20da%20VIA%20OPUS%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20fim%20da%20maquete%203D" target="_blank" rel="noopener noreferrer" data-magnetic><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Conversar com a Rafaela</span></a>
+        <div class="explore" role="group" aria-label="Explore a maquete">
+          <p class="explore-t">Explore a maquete</p>
+          <div class="explore-b">
+            <button type="button" class="xb" data-x="night" aria-pressed="true" data-on="Noite" data-off="Dia"><i aria-hidden="true"></i><span>Noite</span></button>
+            <button type="button" class="xb" data-x="explode" aria-pressed="false" data-on="Montar de novo" data-off="Vista explodida"><i aria-hidden="true"></i><span>Vista explodida</span></button>
+          </div>
+          <p class="explore-h" aria-hidden="true"><i></i>Arraste para girar</p>
+        </div>
+      </div>
+      <p class="cant-cota" aria-hidden="true"><small>Cota</small><b data-cota>+00,00</b><small>m</small></p>
+      <div class="cant-bar wrap">
+        <ol class="cant-etapas"><li><span class="ce-n">01</span><span class="ce-t">Projeto</span><span class="ce-d">Tudo começa no papel: medidas, ideias e um plano claro para a obra.</span></li><li><span class="ce-n">02</span><span class="ce-t">Fundação</span><span class="ce-d">A base que ninguém vê e que sustenta tudo o que vem depois.</span></li><li><span class="ce-n">03</span><span class="ce-t">Estrutura</span><span class="ce-d">Pilares e lajes sobem, pavimento por pavimento.</span></li><li><span class="ce-n">04</span><span class="ce-t">Vedação</span><span class="ce-d">As paredes fecham os espaços e a forma do prédio aparece.</span></li><li><span class="ce-n">05</span><span class="ce-t">Fachada</span><span class="ce-d">Vidro, madeira e pedra: os acabamentos dão identidade à obra.</span></li><li><span class="ce-n">06</span><span class="ce-t">Entrega</span><span class="ce-d">Luzes acesas. O espaço pronto para receber quem vai viver nele.</span></li></ol>
+        <span class="cant-line" aria-hidden="true"><i></i></span>
+      </div>
+      <p class="cant-selo" title="Maquete 3D ilustrativa: mostra as etapas de uma obra, não um projeto real da VIA OPUS.">Maquete 3D ilustrativa</p>
+      <div class="hud" aria-label="Detalhes da maquete"><div class="hs" data-hs="ripado"><button type="button" class="hs-b" aria-expanded="false" aria-controls="hs-ripado"><span class="sr">Ripado de madeira</span><i aria-hidden="true"></i></button><div class="hs-tip" id="hs-ripado" role="note"><b>Ripado de madeira</b><span>Ritmo vertical e calor natural na fachada.</span></div></div><div class="hs" data-hs="vidro"><button type="button" class="hs-b" aria-expanded="false" aria-controls="hs-vidro"><span class="sr">Pele de vidro</span><i aria-hidden="true"></i></button><div class="hs-tip" id="hs-vidro" role="note"><b>Pele de vidro</b><span>Luz natural e vista ampla, com guarda-corpo em vidro.</span></div></div><div class="hs" data-hs="pedra"><button type="button" class="hs-b" aria-expanded="false" aria-controls="hs-pedra"><span class="sr">Revestimento em pedra</span><i aria-hidden="true"></i></button><div class="hs-tip" id="hs-pedra" role="note"><b>Revestimento em pedra</b><span>Textura e durabilidade no volume da direita.</span></div></div><div class="hs" data-hs="coroamento"><button type="button" class="hs-b" aria-expanded="false" aria-controls="hs-coroamento"><span class="sr">Coroamento</span><i aria-hidden="true"></i></button><div class="hs-tip" id="hs-coroamento" role="note"><b>Coroamento</b><span>O acabamento escuro que arremata o volume no alto.</span></div></div></div>
+      <div class="floors" aria-hidden="true"><span class="fl" data-fl="0">Térreo</span><span class="fl" data-fl="1">1º pavimento</span><span class="fl" data-fl="2">2º pavimento</span><span class="fl" data-fl="3">3º pavimento</span><span class="fl" data-fl="4">4º pavimento</span><span class="fl" data-fl="5">Cobertura</span></div>
+    </div>
+  </div>
+  <p class="sr">Maquete 3D ilustrativa: mostra as etapas de uma obra, não um projeto real da VIA OPUS.</p>
+</section>
+
+<section id="obras" class="obras" data-theme="light" aria-labelledby="obras-t">
+  <div class="wrap">
+    <div class="level" data-reveal aria-hidden="true"><span>PAV. 01 — Portfólio</span><i></i><span>+03,60</span></div>
+    <header class="obras-head">
+      <h2 class="sec-t" id="obras-t" data-split data-vf>Estudos <em>em perspectiva.</em></h2>
+      <div data-reveal>
+        <p class="sec-lede">Cada imagem nasce de um traço e é assentada tijolo por tijolo. Passe o cursor para ver o desenho por trás da fachada.</p>
+        <p class="aviso">Estudos visuais gerados por IA. Não representam obras realizadas; registros reais entram aqui após autorização.</p>
+      </div>
+    </header>
+    <div class="gal">
+      <article class="pf pf--1" id="estudo-residencial">
+        <a class="pf-media build bricky" href="assets/residencial-1536.webp" data-open="0" data-cursor="Ver" aria-label="Ver estudo: Entre luz e matéria">
+          <span class="pf-skew">
+            <span class="grid-bg" aria-hidden="true"></span>
+            <img class="traco" src="assets/residencial-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async">
+            <span class="foto"><img src="assets/residencial-1280.webp" srcset="assets/residencial-768.webp 768w, assets/residencial-1280.webp 1280w, assets/residencial-1536.webp 1536w" sizes="(min-width: 1000px) 58vw, 100vw" width="1536" height="1024" alt="Fachada ilustrativa de uma residência contemporânea sob luz natural difusa, com portão e revestimento em pedra." loading="lazy" decoding="async"></span>
+            <span class="scan" aria-hidden="true"></span>
+            <span class="xray" aria-hidden="true"><img src="assets/residencial-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></span>
+          </span>
+        </a>
+        <div class="pf-cap">
+          <span class="pf-num" aria-hidden="true">01</span>
+          <div class="pf-txt">
+            <p class="pf-area">Residencial <span class="tag-ia">Ilustração · IA</span></p>
+            <h3 class="pf-t">Entre luz e matéria</h3>
+            <p class="pf-d">Um estudo de volumes, luz e materiais naturais na fachada residencial.</p>
+          </div>
+          <button type="button" class="link-arrow" data-open="0"><span>Ver estudo</span><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        </div>
+      </article>
+      <article class="pf pf--2" id="estudo-hospitalar">
+        <a class="pf-media build bricky" href="assets/hospitalar-1536.webp" data-open="1" data-cursor="Ver" aria-label="Ver estudo: Espaços de cuidado">
+          <span class="pf-skew">
+            <span class="grid-bg" aria-hidden="true"></span>
+            <img class="traco" src="assets/hospitalar-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async">
+            <span class="foto"><img src="assets/hospitalar-1280.webp" srcset="assets/hospitalar-768.webp 768w, assets/hospitalar-1280.webp 1280w, assets/hospitalar-1536.webp 1536w" sizes="(min-width: 1000px) 58vw, 100vw" width="1536" height="1024" alt="Fachada ilustrativa de uma unidade de saúde, com entrada coberta e janelas em fita." loading="lazy" decoding="async"></span>
+            <span class="scan" aria-hidden="true"></span>
+            <span class="xray" aria-hidden="true"><img src="assets/hospitalar-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></span>
+          </span>
+        </a>
+        <div class="pf-cap">
+          <span class="pf-num" aria-hidden="true">02</span>
+          <div class="pf-txt">
+            <p class="pf-area">Saúde <span class="tag-ia">Ilustração · IA</span></p>
+            <h3 class="pf-t">Espaços de cuidado</h3>
+            <p class="pf-d">Uma leitura conceitual da entrada e da composição de uma unidade de saúde.</p>
+          </div>
+          <button type="button" class="link-arrow" data-open="1"><span>Ver estudo</span><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        </div>
+      </article>
+      <article class="pf pf--3" id="estudo-academias">
+        <a class="pf-media build bricky" href="assets/academias-1536.webp" data-open="2" data-cursor="Ver" aria-label="Ver estudo: ACADEMIA ULTRA (conceito ilustrativo)">
+          <span class="pf-skew">
+            <span class="grid-bg" aria-hidden="true"></span>
+            <img class="traco" src="assets/academias-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async">
+            <span class="foto"><img src="assets/academias-1280.webp" srcset="assets/academias-768.webp 768w, assets/academias-1280.webp 1280w, assets/academias-1536.webp 1536w" sizes="(min-width: 1000px) 58vw, 100vw" width="1536" height="1024" alt="Fachada ilustrativa de uma academia, com o letreiro ACADEMIA ULTRA. É um conceito, não a obra real." loading="lazy" decoding="async"></span>
+            <span class="scan" aria-hidden="true"></span>
+            <span class="xray" aria-hidden="true"><img src="assets/academias-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></span>
+          </span>
+        </a>
+        <div class="pf-cap">
+          <span class="pf-num" aria-hidden="true">03</span>
+          <div class="pf-txt">
+            <p class="pf-area">Academias <span class="tag-ia">Ilustração · IA</span></p>
+            <h3 class="pf-t">ACADEMIA ULTRA <small>conceito ilustrativo</small></h3>
+            <p class="pf-d">Estudo visual para a ACADEMIA ULTRA. Fachada e letreiro ilustrativos; não é o logotipo oficial.</p>
+          </div>
+          <button type="button" class="link-arrow" data-open="2"><span>Ver estudo</span><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        </div>
+      </article>
+      <article class="pf pf--4" id="estudo-reformas">
+        <a class="pf-media build bricky" href="assets/reformas-1536.webp" data-open="3" data-cursor="Ver" aria-label="Ver estudo: Novas formas de habitar">
+          <span class="pf-skew">
+            <span class="grid-bg" aria-hidden="true"></span>
+            <img class="traco" src="assets/reformas-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async">
+            <span class="foto"><img src="assets/reformas-1280.webp" srcset="assets/reformas-768.webp 768w, assets/reformas-1280.webp 1280w, assets/reformas-1536.webp 1536w" sizes="(min-width: 1000px) 58vw, 100vw" width="1536" height="1024" alt="Fachada ilustrativa de um edifício renovado, com revestimentos claros e esquadrias grafite." loading="lazy" decoding="async"></span>
+            <span class="scan" aria-hidden="true"></span>
+            <span class="xray" aria-hidden="true"><img src="assets/reformas-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></span>
+          </span>
+        </a>
+        <div class="pf-cap">
+          <span class="pf-num" aria-hidden="true">04</span>
+          <div class="pf-txt">
+            <p class="pf-area">Reformas <span class="tag-ia">Ilustração · IA</span></p>
+            <h3 class="pf-t">Novas formas de habitar</h3>
+            <p class="pf-d">Um estudo de renovação de fachada, com revestimentos claros e esquadrias grafite.</p>
+          </div>
+          <button type="button" class="link-arrow" data-open="3"><span>Ver estudo</span><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="transformacao" class="tf" data-theme="dark" aria-labelledby="tf-t">
+  <div class="wrap">
+    <div class="level" data-reveal aria-hidden="true"><span>PAV. 02 — Antes e depois</span><i></i><span>+06,60</span></div>
+    <div class="tf-head">
+      <h2 class="sec-t" id="tf-t" data-split>Reforma de fachada, <em>do antes ao depois.</em></h2>
+      <p class="tf-desc" data-reveal>Arraste a linha para comparar. Este é um demonstrativo com imagens ilustrativas: quando houver reformas reais autorizadas, as fotos de antes e depois entram aqui.</p>
+    </div>
+  </div>
+  <div class="tf-stage">
+    <div class="ba" data-ba data-cursor="Arraste">
+      <img class="ba-img" src="assets/depois-1280.webp" srcset="assets/depois-768.webp 768w, assets/depois-1280.webp 1280w, assets/depois-1536.webp 1536w" sizes="100vw" width="1536" height="1024" alt="Imagem ilustrativa do depois: o mesmo prédio renovado, com fachada em pedra clara e madeira ripada, esquadrias pretas, vidro e iluminação." loading="lazy" decoding="async">
+      <div class="ba-antes"><img class="ba-img" src="assets/antes-1280.webp" srcset="assets/antes-768.webp 768w, assets/antes-1280.webp 1280w, assets/antes-1536.webp 1536w" sizes="100vw" width="1536" height="1024" alt="Imagem ilustrativa do antes: prédio de quatro andares com pintura desgastada, manchas de umidade e esquadrias simples." loading="lazy" decoding="async"></div>
+      <span class="ba-tag ba-tag-a" aria-hidden="true">Antes</span>
+      <span class="ba-tag ba-tag-d" aria-hidden="true">Depois</span>
+      <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></span>
+      <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Comparar antes e depois">
+    </div>
+  </div>
+</section>
+
+<section id="processo" class="proc" data-theme="light" aria-labelledby="proc-t">
+  <div class="wrap">
+    <div class="level" data-reveal aria-hidden="true"><span>PAV. 03 — Como funciona</span><i></i><span>+09,60</span></div>
+    <header class="proc-head">
+      <h2 class="sec-t" id="proc-t" data-split>Do primeiro contato <em>ao orçamento.</em></h2>
+      <p class="sec-lede" data-reveal>Três passos simples, sem compromisso.</p>
+    </header>
+    <div class="path" data-path>
+      <svg class="path-svg" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="path-bg" d="M0 80C80 80 120 80 200 80C300 80 320 20 400 20C480 20 500 80 600 80C700 80 720 140 800 140C880 140 900 80 1000 80C1080 80 1120 80 1200 80"/>
+        <path class="path-fg" d="M0 80C80 80 120 80 200 80C300 80 320 20 400 20C480 20 500 80 600 80C700 80 720 140 800 140C880 140 900 80 1000 80C1080 80 1120 80 1200 80"/>
+      </svg>
+      <span class="path-v" aria-hidden="true"><i></i></span>
+      <ol class="path-list">
+        <li class="ps" data-ps="0">
+          <span class="ps-dot" aria-hidden="true"></span>
+          <span class="ps-ico" aria-hidden="true"><svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false"><path class="draw" pathLength="1" d="M8 12h32v20H22l-8 7v-7H8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path class="draw" pathLength="1" d="M15 20h18M15 25h12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <span class="ps-n" aria-hidden="true">01</span>
+          <h3>Conversa</h3>
+          <p>Você conta o que precisa pelo WhatsApp da Rafaela.</p>
+        </li>
+        <li class="ps" data-ps="1">
+          <span class="ps-dot" aria-hidden="true"></span>
+          <span class="ps-ico" aria-hidden="true"><svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false"><path class="draw" pathLength="1" d="M24 42s-12-12.5-12-21a12 12 0 0 1 24 0c0 8.5-12 21-12 21z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle class="draw" pathLength="1" cx="24" cy="21" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <span class="ps-n" aria-hidden="true">02</span>
+          <h3>Visita técnica</h3>
+          <p>Combinamos uma visita técnica ao local.</p>
+        </li>
+        <li class="ps" data-ps="2">
+          <span class="ps-dot" aria-hidden="true"></span>
+          <span class="ps-ico" aria-hidden="true"><svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false"><path class="draw" pathLength="1" d="M13 6h16l8 8v28H13z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path class="draw" pathLength="1" d="M29 6v8h8M18 22h14M18 28h14M18 34h9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <span class="ps-n" aria-hidden="true">03</span>
+          <h3>Orçamento</h3>
+          <p>O orçamento é feito depois da conversa e da visita técnica.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="historia" class="hist" data-theme="light" aria-labelledby="hist-t">
+  <div class="wrap">
+    <div class="level" data-reveal aria-hidden="true"><span>PAV. 04 — Nossa história</span><i></i><span>+12,60</span></div>
+    <header class="hist-head">
+      <h2 class="sec-t hist-t" id="hist-t" data-split data-vf><span>Experiência para construir.</span> <em>Sensibilidade para projetar.</em></h2>
+      <p class="hist-intro" data-reveal>A VIA OPUS nasceu da parceria entre Fernando Taveira e a arquiteta Rafaela Lacerda. Experiência na construção e criatividade reunidas em uma mesma empresa.</p>
+    </header>
+    <div class="founders">
+        <article class="founder" data-reveal>
+          <p class="f-num" data-fill aria-label="30+ anos na construção civil"><span aria-hidden="true">30+</span></p>
+          <p class="f-numlabel" aria-hidden="true">anos na construção civil</p>
+          <h3 class="f-name">Fernando Taveira</h3>
+          <p class="f-role">Construção civil</p>
+          <p class="f-story">Há mais de 30 anos, Fernando Taveira constrói uma trajetória movida pela paixão de transformar projetos em realidade. Na construção civil, encontrou seu propósito: criar espaços que acolhem vidas e novas histórias.</p>
+        </article>
+        <article class="founder" data-reveal>
+          <p class="f-num" data-fill aria-label="10+ anos em projetos e obras"><span aria-hidden="true">10+</span></p>
+          <p class="f-numlabel" aria-hidden="true">anos em projetos e obras</p>
+          <h3 class="f-name">Rafaela Lacerda</h3>
+          <p class="f-role">Arquitetura</p>
+          <p class="f-story">Arquiteta, Rafaela Lacerda reúne mais de 10 anos de experiência entre projetos e obras. Nesse caminho, aprendeu que um bom projeto não termina no desenho: só se completa quando funciona na obra e acolhe a rotina de quem vai viver ou trabalhar no espaço. É com esse olhar, atento aos detalhes e sensível às pessoas, que conduz cada conversa na VIA OPUS, do primeiro contato ao resultado final.</p>
+        </article>
+    </div>
+    <div class="hist-foot">
+      <blockquote class="hist-quote" data-reveal><p>Uma parceria que une a força de construir à sensibilidade de projetar, dando forma a lugares onde o futuro acontece.</p></blockquote>
+      <div class="hist-side" data-reveal>
+        <p class="hist-together">Juntos, atuam no Distrito Federal, em Goiás e no Entorno, com atenção aos detalhes e respeito por quem confia em seu trabalho.</p>
+        <div class="tags">
+          <div><p class="tags-t" id="tg-r">Onde atuamos</p><ul aria-labelledby="tg-r"><li>Distrito Federal</li><li>Goiás</li><li>Entorno</li></ul></div>
+          <div><p class="tags-t" id="tg-p">Atendemos</p><ul aria-labelledby="tg-p"><li>Pessoas físicas</li><li>Empresas</li><li>Construtoras</li><li>Condomínios</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="ct" data-theme="dark" aria-labelledby="ct-t">
+  <picture class="ct-poster" aria-hidden="true">
+    <source media="(max-aspect-ratio: 1/1)" srcset="assets/maquete-final-900.webp">
+    <img src="assets/maquete-final-1920.webp" width="1920" height="1080" alt="" loading="lazy" decoding="async">
+  </picture>
+  <div class="wrap">
+    <div class="level" data-reveal aria-hidden="true"><span>COBERTURA — Orçamento</span><i></i><span>+15,60</span></div>
+    <div class="ct-grid">
+      <div class="ct-main">
+        <h2 class="ct-t" id="ct-t" data-split><span>Vamos falar sobre</span> <em>sua obra?</em></h2>
+        <p class="ct-desc" data-reveal>Conte o que você precisa. O atendimento é feito pela Rafaela, pelo WhatsApp.</p>
+        <div class="ct-card glass" data-reveal>
+          <p class="ct-k">Fale com a Rafaela</p>
+          <p class="ct-name">Rafaela Lacerda <span>Arquiteta</span></p>
+          <p class="ct-num"><span class="sr">WhatsApp: </span>(61) 8518-9004</p>
+          <a class="btn btn-copper" href="https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vim%20pelo%20site%20da%20VIA%20OPUS%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20cart%C3%A3o%20de%20contato" target="_blank" rel="noopener noreferrer" data-magnetic><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Falar com a Rafaela no WhatsApp</span></a>
+        </div>
+        <p class="ct-aviso">O orçamento é feito após uma conversa e uma visita técnica. Todo contato segue para a Rafaela Lacerda.</p>
+      </div>
+      <div class="ct-brief glass" data-brief hidden>
+        <p class="ct-k">Ou monte sua mensagem</p>
+        <p class="brief-intro">Responda em 4 toques. Nada é enviado por este site: a mensagem só abre no seu WhatsApp para você revisar.</p>
+          <div class="bq" role="group" aria-labelledby="bq-espaco" data-q="espaco" data-label="Tipo de espaço">
+            <p class="bq-t" id="bq-espaco">Que tipo de espaço?</p>
+            <div class="bq-opts"><button type="button" class="chip" aria-pressed="false">Residência</button><button type="button" class="chip" aria-pressed="false">Ambiente de saúde</button><button type="button" class="chip" aria-pressed="false">Academia</button><button type="button" class="chip" aria-pressed="false">Reforma</button><button type="button" class="chip" aria-pressed="false">Outro</button></div>
+          </div>
+          <div class="bq" role="group" aria-labelledby="bq-local" data-q="local" data-label="Local">
+            <p class="bq-t" id="bq-local">Onde fica?</p>
+            <div class="bq-opts"><button type="button" class="chip" aria-pressed="false">Distrito Federal</button><button type="button" class="chip" aria-pressed="false">Goiás</button><button type="button" class="chip" aria-pressed="false">Entorno</button></div>
+          </div>
+          <div class="bq" role="group" aria-labelledby="bq-tamanho" data-q="tamanho" data-label="Tamanho aproximado">
+            <p class="bq-t" id="bq-tamanho">Tamanho aproximado</p>
+            <div class="bq-opts"><button type="button" class="chip" aria-pressed="false">Até 100 m²</button><button type="button" class="chip" aria-pressed="false">100 a 300 m²</button><button type="button" class="chip" aria-pressed="false">300 a 1.000 m²</button><button type="button" class="chip" aria-pressed="false">Acima de 1.000 m²</button><button type="button" class="chip" aria-pressed="false">Não sei</button></div>
+          </div>
+          <div class="bq" role="group" aria-labelledby="bq-prazo" data-q="prazo" data-label="Quando pretende começar">
+            <p class="bq-t" id="bq-prazo">Quando pretende começar?</p>
+            <div class="bq-opts"><button type="button" class="chip" aria-pressed="false">O quanto antes</button><button type="button" class="chip" aria-pressed="false">Em até 3 meses</button><button type="button" class="chip" aria-pressed="false">Entre 3 e 6 meses</button><button type="button" class="chip" aria-pressed="false">Ainda estou planejando</button></div>
+          </div>
+        <div class="bq bq-extra">
+          <label class="bq-t" for="brief-extra">Quer contar mais alguma coisa? (opcional)</label>
+          <textarea id="brief-extra" rows="2" maxlength="400" placeholder="Ex.: já tenho planta, o imóvel é alugado, preciso de projeto…" data-obs="Observações"></textarea>
+        </div>
+        <div class="brief-prev">
+          <p class="bq-t">Sua mensagem</p>
+          <p class="brief-msg" aria-live="polite" data-empty="Escolha as opções acima para montar a mensagem.">Escolha as opções acima para montar a mensagem.</p>
+        </div>
+        <a class="btn btn-copper brief-send" href="https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vim%20pelo%20site%20da%20VIA%20OPUS%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20mensagem%20montada%20no%20site" target="_blank" rel="noopener noreferrer" aria-disabled="true"><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Enviar para a Rafaela no WhatsApp</span></a>
+      </div>
+    </div>
+    <p class="ct-legenda">Maquete 3D ilustrativa ao anoitecer</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft" data-theme="dark">
+  <div class="wrap">
+    <img class="ft-logo" src="assets/via-opus-960.webp" srcset="assets/via-opus-640.webp 640w, assets/via-opus-960.webp 960w" sizes="(min-width: 900px) 420px, 70vw" width="960" height="526" alt="Logomarca VIA OPUS — Engenharia &amp; Construções" loading="lazy" decoding="async">
+    <div class="ft-cols">
+      <p>Distrito Federal, Goiás e Entorno<br>WhatsApp (61) 8518-9004 · Rafaela Lacerda</p>
+      <div><p class="ft-ia">Imagens ilustrativas geradas por IA e maquete 3D ilustrativa. Não representam obras realizadas.</p><p>Prévia 5.1 para avaliação. Registros de obras reais serão incluídos após confirmação e autorização.</p></div>
+      <p class="ft-end"><a class="link-arrow" href="#canteiro"><span>Voltar ao início</span><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><span class="ft-ver">Prévia 5.1</span></p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vim%20pelo%20site%20da%20VIA%20OPUS%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20bot%C3%A3o%20fixo" target="_blank" rel="noopener noreferrer"><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Orçamento</span></a>
+
+<dialog class="study" id="study" aria-labelledby="study-t">
+  <div class="study-media">
+    <div class="study-stage">
+      <img class="study-traco" alt="" hidden>
+      <img class="study-foto" alt="">
+    </div>
+    <button type="button" class="study-toggle" aria-pressed="false" data-a="Ver o traço" data-b="Ver a imagem">Ver o traço</button>
+  </div>
+  <div class="study-info">
+    <p class="kicker"><span class="kline" aria-hidden="true"></span><span data-s-area></span></p>
+    <h2 class="study-t" id="study-t"></h2>
+    <p class="study-d" data-s-desc></p>
+    <dl class="ficha">
+      <div><dt>Natureza</dt><dd>Estudo conceitual, não é obra</dd></div>
+      <div><dt>Origem da imagem</dt><dd>Imagem ilustrativa gerada por IA — não representa a obra real.</dd></div>
+    </dl>
+    <div class="ficha-obra" data-s-ficha hidden>
+      <p class="ficha-t">Ficha da obra <span class="ficha-ex" data-s-ex hidden>exemplo</span></p>
+      <dl class="ficha ficha--2"><div><dt>Local</dt><dd data-f="local"></dd></div><div><dt>Ano</dt><dd data-f="ano"></dd></div><div><dt>Área</dt><dd data-f="area"></dd></div><div><dt>Escopo</dt><dd data-f="escopo"></dd></div></dl>
+      <p class="ficha-n" data-s-note hidden>Exemplo de ficha: os dados reais serão preenchidos quando houver obra autorizada.</p>
+    </div>
+    <a class="btn btn-copper study-wa" href="#contato" target="_blank" rel="noopener noreferrer"><svg class="ico-wa" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 0 0-7.55 13.33L3.2 20.8l4.4-1.15A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.1 7.9c.2-.4.45-.4.75-.4h.35c.18 0 .38.02.52.4l.62 1.5c.08.2.05.4-.08.56l-.5.6c-.12.15-.14.3-.04.48.5.9 1.2 1.6 2.2 2.1.2.1.36.1.5-.06l.7-.8c.15-.17.33-.2.53-.1l1.5.72c.2.1.3.2.3.38 0 .55-.28 1.1-.74 1.46-.5.4-1.15.5-1.8.3-2.7-.84-4.5-2.7-5.3-4.9-.2-.66-.02-1.3.39-1.84z" fill="currentColor"/></svg><span>Quero algo parecido</span></a>
+    <div class="study-nav">
+      <button type="button" class="link-arrow link-arrow--back" data-s-prev><span>Anterior</span><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <span class="study-count" data-s-count aria-live="polite"></span>
+      <button type="button" class="link-arrow" data-s-next><span>Próximo</span><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    </div>
+  </div>
+  <button type="button" class="study-close" data-s-close aria-label="Fechar"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.5"/></svg></button>
+</dialog>
+
+<script type="application/json" id="obras-data">[{"id":"residencial","area":"Residencial","titulo":"Entre luz e matéria","subtitulo":"","descricao":"Um estudo de volumes, luz e materiais naturais na fachada residencial.","alt":"Fachada ilustrativa de uma residência contemporânea sob luz natural difusa, com portão e revestimento em pedra.","imagem":"residencial","ficha":{"local":"Cidade · bairro","ano":"AAAA","area":"000 m²","escopo":"Ex.: construção completa","exemplo":true},"traco":"assets/residencial-traco-1536.webp","wa":"https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vi%20o%20estudo%20%22Entre%20luz%20e%20mat%C3%A9ria%22%20(Residencial)%20no%20site%20da%20VIA%20OPUS%20e%20quero%20algo%20parecido.%20Pode%20me%20atender%3F%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20estudo%20Entre%20luz%20e%20mat%C3%A9ria"},{"id":"hospitalar","area":"Saúde","titulo":"Espaços de cuidado","subtitulo":"","descricao":"Uma leitura conceitual da entrada e da composição de uma unidade de saúde.","alt":"Fachada ilustrativa de uma unidade de saúde, com entrada coberta e janelas em fita.","imagem":"hospitalar","ficha":{"local":"Cidade · bairro","ano":"AAAA","area":"000 m²","escopo":"Ex.: construção completa","exemplo":true},"traco":"assets/hospitalar-traco-1536.webp","wa":"https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vi%20o%20estudo%20%22Espa%C3%A7os%20de%20cuidado%22%20(Sa%C3%BAde)%20no%20site%20da%20VIA%20OPUS%20e%20quero%20algo%20parecido.%20Pode%20me%20atender%3F%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20estudo%20Espa%C3%A7os%20de%20cuidado"},{"id":"academias","area":"Academias","titulo":"ACADEMIA ULTRA","subtitulo":"conceito ilustrativo","descricao":"Estudo visual para a ACADEMIA ULTRA. Fachada e letreiro ilustrativos; não é o logotipo oficial.","alt":"Fachada ilustrativa de uma academia, com o letreiro ACADEMIA ULTRA. É um conceito, não a obra real.","imagem":"academias","ficha":{"local":"Cidade · bairro","ano":"AAAA","area":"000 m²","escopo":"Ex.: construção completa","exemplo":true},"traco":"assets/academias-traco-1536.webp","wa":"https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vi%20o%20estudo%20%22ACADEMIA%20ULTRA%22%20(Academias)%20no%20site%20da%20VIA%20OPUS%20e%20quero%20algo%20parecido.%20Pode%20me%20atender%3F%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20estudo%20ACADEMIA%20ULTRA"},{"id":"reformas","area":"Reformas","titulo":"Novas formas de habitar","subtitulo":"","descricao":"Um estudo de renovação de fachada, com revestimentos claros e esquadrias grafite.","alt":"Fachada ilustrativa de um edifício renovado, com revestimentos claros e esquadrias grafite.","imagem":"reformas","ficha":{"local":"Cidade · bairro","ano":"AAAA","area":"000 m²","escopo":"Ex.: construção completa","exemplo":true},"traco":"assets/reformas-traco-1536.webp","wa":"https://wa.me/556185189004?text=Ol%C3%A1%2C%20Rafaela!%20Vi%20o%20estudo%20%22Novas%20formas%20de%20habitar%22%20(Reformas)%20no%20site%20da%20VIA%20OPUS%20e%20quero%20algo%20parecido.%20Pode%20me%20atender%3F%0A%0AOrigem%3A%20site%20VIA%20OPUS%20%C2%B7%20estudo%20Novas%20formas%20de%20habitar"}]</script>
+</body>
+</html>

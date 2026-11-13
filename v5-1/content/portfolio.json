@@ -1,0 +1,61 @@
+{
+  "projetos": [
+    {
+      "id": "residencial",
+      "area": "Residencial",
+      "titulo": "Entre luz e matéria",
+      "subtitulo": "",
+      "descricao": "Um estudo de volumes, luz e materiais naturais na fachada residencial.",
+      "imagem": "residencial",
+      "alt": "Fachada ilustrativa de uma residência contemporânea sob luz natural difusa, com portão e revestimento em pedra.",
+      "ficha": { "local": "Cidade · bairro", "ano": "AAAA", "area": "000 m²", "escopo": "Ex.: construção completa", "exemplo": true }
+    },
+    {
+      "id": "hospitalar",
+      "area": "Saúde",
+      "titulo": "Espaços de cuidado",
+      "subtitulo": "",
+      "descricao": "Uma leitura conceitual da entrada e da composição de uma unidade de saúde.",
+      "imagem": "hospitalar",
+      "alt": "Fachada ilustrativa de uma unidade de saúde, com entrada coberta e janelas em fita.",
+      "ficha": { "local": "Cidade · bairro", "ano": "AAAA", "area": "000 m²", "escopo": "Ex.: construção completa", "exemplo": true }
+    },
+    {
+      "id": "academias",
+      "area": "Academias",
+      "titulo": "ACADEMIA ULTRA",
+      "subtitulo": "conceito ilustrativo",
+      "descricao": "Estudo visual para a ACADEMIA ULTRA. Fachada e letreiro ilustrativos; não é o logotipo oficial.",
+      "imagem": "academias",
+      "alt": "Fachada ilustrativa de uma academia, com o letreiro ACADEMIA ULTRA. É um conceito, não a obra real.",
+      "ficha": { "local": "Cidade · bairro", "ano": "AAAA", "area": "000 m²", "escopo": "Ex.: construção completa", "exemplo": true }
+    },
+    {
+      "id": "reformas",
+      "area": "Reformas",
+      "titulo": "Novas formas de habitar",
+      "subtitulo": "",
+      "descricao": "Um estudo de renovação de fachada, com revestimentos claros e esquadrias grafite.",
+      "imagem": "reformas",
+      "alt": "Fachada ilustrativa de um edifício renovado, com revestimentos claros e esquadrias grafite.",
+      "ficha": { "local": "Cidade · bairro", "ano": "AAAA", "area": "000 m²", "escopo": "Ex.: construção completa", "exemplo": true }
+    }
+  ],
+  "rotulos": {
+    "ia": "Ilustração · IA",
+    "ver": "Ver estudo",
+    "natureza": "Natureza",
+    "naturezaValor": "Estudo conceitual, não é obra",
+    "origem": "Origem da imagem",
+    "origemValor": "Imagem ilustrativa gerada por IA — não representa a obra real.",
+    "ficha": "Ficha da obra",
+    "fichaExemplo": "Exemplo de ficha: os dados reais serão preenchidos quando houver obra autorizada.",
+    "fichaRotulos": { "local": "Local", "ano": "Ano", "area": "Área", "escopo": "Escopo" },
+    "verTraco": "Ver o traço",
+    "verObra": "Ver a imagem",
+    "botaoEstudo": "Quero algo parecido",
+    "anterior": "Anterior",
+    "proximo": "Próximo",
+    "fechar": "Fechar"
+  }
+}

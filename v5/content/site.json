@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "titulo": "VIA OPUS — Engenharia & Construções",
+    "descricao": "VIA OPUS — Engenharia & Construções. Construção e reformas residenciais, de saúde, academias e espaços comerciais no Distrito Federal, em Goiás e no Entorno. Peça seu orçamento pelo WhatsApp.",
+    "url": "",
+    "indexar": false,
+    "imagemCompartilhar": "assets/via-opus-compartilhar-1200x630.jpg",
+    "versao": "Prévia 5.0"
+  },
+  "contato": {
+    "whatsapp": "556185189004",
+    "whatsappExibir": "(61) 8518-9004",
+    "nome": "Rafaela Lacerda",
+    "funcao": "Arquiteta",
+    "mensagemGeral": "Olá, Rafaela! Vim pelo site da VIA OPUS e gostaria de pedir um orçamento.",
+    "mensagemEstudo": "Olá, Rafaela! Vi o estudo \"{titulo}\" ({area}) no site da VIA OPUS e quero algo parecido. Pode me atender?",
+    "origem": "Origem: site VIA OPUS · {origem}"
+  },
+  "navegacao": [
+    {
+      "destino": "obras",
+      "rotulo": "Portfólio"
+    },
+    {
+      "destino": "transformacao",
+      "rotulo": "Antes e depois"
+    },
+    {
+      "destino": "processo",
+      "rotulo": "Como funciona"
+    },
+    {
+      "destino": "historia",
+      "rotulo": "Nossa história"
+    },
+    {
+      "destino": "contato",
+      "rotulo": "Contato"
+    }
+  ],
+  "pavimentos": [
+    {
+      "destino": "canteiro",
+      "sigla": "T",
+      "rotulo": "Canteiro"
+    },
+    {
+      "destino": "obras",
+      "sigla": "01",
+      "rotulo": "Portfólio"
+    },
+    {
+      "destino": "transformacao",
+      "sigla": "02",
+      "rotulo": "Antes e depois"
+    },
+    {
+      "destino": "processo",
+      "sigla": "03",
+      "rotulo": "Como funciona"
+    },
+    {
+      "destino": "historia",
+      "sigla": "04",
+      "rotulo": "Nossa história"
+    },
+    {
+      "destino": "contato",
+      "sigla": "C",
+      "rotulo": "Cobertura"
+    }
+  ],
+  "carregando": "Preparando o canteiro",
+  "canteiro": {
+    "chamada": "Engenharia & Construções",
+    "linha1": "Precisão que",
+    "linha2": "ganha forma.",
+    "descricao": "Role a página e veja uma obra sair do papel. No fim, gire a maquete, veja de dia ou à noite e abra os pavimentos.",
+    "dica": "Role para construir",
+    "botao": "Pedir orçamento",
+    "regiao": "Distrito Federal · Goiás · Entorno",
+    "selo": "Maquete 3D ilustrativa",
+    "aviso": "Maquete 3D ilustrativa: mostra as etapas de uma obra, não um projeto real da VIA OPUS.",
+    "etapaRotulo": "Etapa",
+    "cotaRotulo": "Cota",
+    "etapas": [
+      {
+        "titulo": "Projeto",
+        "descricao": "Tudo começa no papel: medidas, ideias e um plano claro para a obra."
+      },
+      {
+        "titulo": "Fundação",
+        "descricao": "A base que ninguém vê e que sustenta tudo o que vem depois."
+      },
+      {
+        "titulo": "Estrutura",
+        "descricao": "Pilares e lajes sobem, pavimento por pavimento."
+      },
+      {
+        "titulo": "Vedação",
+        "descricao": "As paredes fecham os espaços e a forma do prédio aparece."
+      },
+      {
+        "titulo": "Fachada",
+        "descricao": "Vidro, madeira e pedra: os acabamentos dão identidade à obra."
+      },
+      {
+        "titulo": "Entrega",
+        "descricao": "Luzes acesas. O espaço pronto para receber quem vai viver nele."
+      }
+    ],
+    "finalTitulo": "A próxima obra pode ser a sua.",
+    "finalBotao": "Conversar com a Rafaela",
+    "poster": "maquete-final",
+    "posterAlt": "Maquete 3D ilustrativa de um prédio de quatro pavimentos ao anoitecer, com janelas iluminadas, ripas de madeira e volume em pedra.",
+    "explorar": {
+      "titulo": "Explore a maquete",
+      "noite": "Noite",
+      "dia": "Dia",
+      "explodir": "Vista explodida",
+      "montar": "Montar de novo",
+      "girar": "Arraste para girar"
+    },
+    "pontos": [
+      {
+        "id": "ripado",
+        "titulo": "Ripado de madeira",
+        "texto": "Ritmo vertical e calor natural na fachada."
+      },
+      {
+        "id": "vidro",
+        "titulo": "Pele de vidro",
+        "texto": "Luz natural e vista ampla, com guarda-corpo em vidro."
+      },
+      {
+        "id": "pedra",
+        "titulo": "Revestimento em pedra",
+        "texto": "Textura e durabilidade no volume da direita."
+      },
+      {
+        "id": "coroamento",
+        "titulo": "Coroamento",
+        "texto": "O acabamento escuro que arremata o volume no alto."
+      }
+    ],
+    "pontosRotulo": "Detalhes da maquete",
+    "andares": [
+      "Térreo",
+      "1º pavimento",
+      "2º pavimento",
+      "3º pavimento",
+      "4º pavimento",
+      "Cobertura"
+    ]
+  },
+  "portfolio": {
+    "chamada": "Portfólio",
+    "titulo1": "Estudos",
+    "titulo2": "em perspectiva.",
+    "descricao": "Cada imagem nasce de um traço e se constrói diante de você. Passe o cursor para ver o desenho por trás da fachada.",
+    "aviso": "Estudos visuais gerados por IA. Não representam obras realizadas; registros reais entram aqui após autorização."
+  },
+  "transformacao": {
+    "chamada": "Antes e depois",
+    "titulo1": "Reforma de fachada,",
+    "titulo2": "do antes ao depois.",
+    "descricao": "Arraste a linha para comparar. Este é um demonstrativo com imagens ilustrativas: quando houver reformas reais autorizadas, as fotos de antes e depois entram aqui.",
+    "rotuloAntes": "Antes",
+    "rotuloDepois": "Depois",
+    "controle": "Comparar antes e depois",
+    "antes": "antes",
+    "depois": "depois",
+    "altAntes": "Imagem ilustrativa do antes: prédio de quatro andares com pintura desgastada, manchas de umidade e esquadrias simples.",
+    "altDepois": "Imagem ilustrativa do depois: o mesmo prédio renovado, com fachada em pedra clara e madeira ripada, esquadrias pretas, vidro e iluminação.",
+    "dica": "Arraste"
+  },
+  "processo": {
+    "chamada": "Como funciona",
+    "titulo1": "Do primeiro contato",
+    "titulo2": "ao orçamento.",
+    "descricao": "Três passos simples, sem compromisso.",
+    "etapas": [
+      {
+        "titulo": "Conversa",
+        "descricao": "Você conta o que precisa pelo WhatsApp da Rafaela."
+      },
+      {
+        "titulo": "Visita técnica",
+        "descricao": "Combinamos uma visita técnica ao local."
+      },
+      {
+        "titulo": "Orçamento",
+        "descricao": "O orçamento é feito depois da conversa e da visita técnica."
+      }
+    ]
+  },
+  "historia": {
+    "chamada": "Nossa história",
+    "titulo1": "Experiência para construir.",
+    "titulo2": "Sensibilidade para projetar.",
+    "intro": "A VIA OPUS nasceu da parceria entre Fernando Taveira e a arquiteta Rafaela Lacerda. Experiência na construção e criatividade reunidas em uma mesma empresa.",
+    "fundadores": [
+      {
+        "nome": "Fernando Taveira",
+        "numero": 30,
+        "sufixo": "+",
+        "rotuloNumero": "anos na construção civil",
+        "funcao": "Construção civil",
+        "historia": "Há mais de 30 anos, Fernando Taveira constrói uma trajetória movida pela paixão de transformar projetos em realidade. Na construção civil, encontrou seu propósito: criar espaços que acolhem vidas e novas histórias."
+      },
+      {
+        "nome": "Rafaela Lacerda",
+        "numero": 10,
+        "sufixo": "+",
+        "rotuloNumero": "anos em projetos e obras",
+        "funcao": "Arquitetura",
+        "historia": "Arquiteta, Rafaela Lacerda reúne mais de 10 anos de experiência entre projetos e obras. Nesse caminho, aprendeu que um bom projeto não termina no desenho: só se completa quando funciona na obra e acolhe a rotina de quem vai viver ou trabalhar no espaço. É com esse olhar, atento aos detalhes e sensível às pessoas, que conduz cada conversa na VIA OPUS, do primeiro contato ao resultado final."
+      }
+    ],
+    "juntos": "Juntos, atuam no Distrito Federal, em Goiás e no Entorno, com atenção aos detalhes e respeito por quem confia em seu trabalho.",
+    "conclusao": "Uma parceria que une a força de construir à sensibilidade de projetar, dando forma a lugares onde o futuro acontece.",
+    "regioesRotulo": "Onde atuamos",
+    "regioes": [
+      "Distrito Federal",
+      "Goiás",
+      "Entorno"
+    ],
+    "publicosRotulo": "Atendemos",
+    "publicos": [
+      "Pessoas físicas",
+      "Empresas",
+      "Construtoras",
+      "Condomínios"
+    ]
+  },
+  "orcamento": {
+    "chamada": "Cobertura · Orçamento",
+    "titulo1": "Vamos falar sobre",
+    "titulo2": "sua obra?",
+    "descricao": "Conte o que você precisa. O atendimento é feito pela Rafaela, pelo WhatsApp.",
+    "cartaoTitulo": "Fale com a Rafaela",
+    "botao": "Falar com a Rafaela no WhatsApp",
+    "aviso": "O orçamento é feito após uma conversa e uma visita técnica. Todo contato segue para a Rafaela Lacerda.",
+    "briefTitulo": "Ou monte sua mensagem",
+    "briefIntro": "Responda em 4 toques. Nada é enviado por este site: a mensagem só abre no seu WhatsApp para você revisar.",
+    "briefPerguntas": [
+      {
+        "id": "espaco",
+        "pergunta": "Que tipo de espaço?",
+        "rotulo": "Tipo de espaço",
+        "opcoes": [
+          "Residência",
+          "Ambiente de saúde",
+          "Academia",
+          "Reforma",
+          "Outro"
+        ]
+      },
+      {
+        "id": "local",
+        "pergunta": "Onde fica?",
+        "rotulo": "Local",
+        "opcoes": [
+          "Distrito Federal",
+          "Goiás",
+          "Entorno"
+        ]
+      },
+      {
+        "id": "tamanho",
+        "pergunta": "Tamanho aproximado",
+        "rotulo": "Tamanho aproximado",
+        "opcoes": [
+          "Até 100 m²",
+          "100 a 300 m²",
+          "300 a 1.000 m²",
+          "Acima de 1.000 m²",
+          "Não sei"
+        ]
+      },
+      {
+        "id": "prazo",
+        "pergunta": "Quando pretende começar?",
+        "rotulo": "Quando pretende começar",
+        "opcoes": [
+          "O quanto antes",
+          "Em até 3 meses",
+          "Entre 3 e 6 meses",
+          "Ainda estou planejando"
+        ]
+      }
+    ],
+    "briefExtraRotulo": "Quer contar mais alguma coisa? (opcional)",
+    "briefExtraDica": "Ex.: já tenho planta, o imóvel é alugado, preciso de projeto…",
+    "briefObsRotulo": "Observações",
+    "briefPrevia": "Sua mensagem",
+    "briefVazio": "Escolha as opções acima para montar a mensagem.",
+    "briefBotao": "Enviar para a Rafaela no WhatsApp",
+    "legendaNoite": "Maquete 3D ilustrativa ao anoitecer"
+  },
+  "rodape": {
+    "frase": "Precisão que ganha forma.",
+    "regiao": "Distrito Federal, Goiás e Entorno",
+    "avisoIA": "Imagens ilustrativas geradas por IA e maquete 3D ilustrativa. Não representam obras realizadas.",
+    "nota": "Prévia 5.0 para avaliação. Registros de obras reais serão incluídos após confirmação e autorização.",
+    "voltar": "Voltar ao início"
+  },
+  "credenciais": [
+    {
+      "rotulo": "CNPJ",
+      "valor": ""
+    },
+    {
+      "rotulo": "Registro profissional (CREA / CAU)",
+      "valor": ""
+    },
+    {
+      "rotulo": "Seguro de obra",
+      "valor": ""
+    }
+  ],
+  "origens": {
+    "abertura": "botão da abertura",
+    "cabecalho": "cabeçalho",
+    "fixo": "botão fixo",
+    "estudo": "estudo {titulo}",
+    "portfolio": "fim do portfólio",
+    "cartao": "cartão de contato",
+    "rodape": "rodapé",
+    "montada": "mensagem montada no site",
+    "canteiro": "fim da maquete 3D"
+  }
+}
