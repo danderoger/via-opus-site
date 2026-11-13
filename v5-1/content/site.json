@@ -2,10 +2,11 @@
   "meta": {
     "titulo": "VIA OPUS — Engenharia & Construções",
     "descricao": "VIA OPUS — Engenharia & Construções. Construção e reformas residenciais, de saúde, academias e espaços comerciais no Distrito Federal, em Goiás e no Entorno. Peça seu orçamento pelo WhatsApp.",
-    "url": "",
-    "indexar": false,
+    "url": "https://viaopusconstrutora.com.br/",
+    "indexar": true,
     "imagemCompartilhar": "assets/via-opus-compartilhar-1200x630.jpg",
-    "versao": "Prévia 5.1"
+    "versao": "Versão 5.1",
+    "versaoNumero": "5.1"
   },
   "contato": {
     "whatsapp": "556185189004",
@@ -302,7 +303,7 @@
     "frase": "Precisão que ganha forma.",
     "regiao": "Distrito Federal, Goiás e Entorno",
     "avisoIA": "Imagens ilustrativas geradas por IA e maquete 3D ilustrativa. Não representam obras realizadas.",
-    "nota": "Prévia 5.1 para avaliação. Registros de obras reais serão incluídos após confirmação e autorização.",
+    "nota": "As imagens são estudos ilustrativos. Registros de obras reais serão incluídos após confirmação e autorização.",
     "voltar": "Voltar ao início"
   },
   "credenciais": [

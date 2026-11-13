@@ -9,7 +9,10 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const V5 = path.join(ROOT, 'v5-1');
 const OUT = path.join(V5, 'site');
-const FONTS = path.join(ROOT, 'v2-1', 'site', 'fonts');
+const FONTS = path.join(V5, 'fonts'); // fontes versionadas dentro de v5-1/fonts (sem depender de versões antigas)
+
+// Política de segurança embutida (compatível com os recursos locais do site; sem script/estilo inline).
+const CSP = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'";
 
 const e = v => String(v ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const fill = (t, vals = {}) => String(t).replace(/\{(\w+)\}/g, (_, k) => vals[k] ?? '');
@@ -145,7 +148,12 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/via-opus-icone-128.webp" type="image/webp">
+<meta name="generator" content="VIA OPUS ${e(site.meta.versaoNumero || '5.1')}">
+<meta http-equiv="Content-Security-Policy" content="${CSP}">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="assets/via-opus-icone-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 <script src="boot.js"></script>
@@ -423,7 +431,44 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
   for (const f of await fs.readdir(path.join(V5, 'assets'))) await fs.copyFile(path.join(V5, 'assets', f), path.join(OUT, 'assets', f));
   for (const f of (await fs.readdir(FONTS)).filter(f => f.endsWith('.txt'))) await fs.copyFile(path.join(FONTS, f), path.join(OUT, 'fonts', f));
   await fs.writeFile(path.join(OUT, 'fonts.css'), await fontsCss());
-  await fs.writeFile(path.join(OUT, 'robots.txt'), site.meta.indexar ? `User-agent: *\nAllow: /\n` : `User-agent: *\nDisallow: /\n`);
+  await fs.copyFile(path.join(V5, 'assets', 'favicon.ico'), path.join(OUT, 'favicon.ico'));
+  await fs.copyFile(path.join(V5, 'src', 'erro.css'), path.join(OUT, 'erro.css'));
+  const home = base || './';
+  await fs.writeFile(path.join(OUT, '404.html'), `<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="${CSP}">
+<title>Página não encontrada — VIA OPUS</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/erro.css">
+</head>
+<body>
+<main>
+<p class="k">Erro 404</p>
+<h1>Esta página não foi encontrada.</h1>
+<p>O endereço pode ter mudado ou não existir. Volte ao início para ver o portfólio e pedir seu orçamento.</p>
+<a href="${e(home)}">Voltar ao site da VIA OPUS</a>
+</main>
+</body>
+</html>
+`);
+  await fs.writeFile(path.join(OUT, '.nojekyll'), '');
+  // Identificação da versão publicada (o fluxo de publicação preenche o commit via VIA_OPUS_COMMIT).
+  await fs.writeFile(path.join(OUT, 'versao.json'), JSON.stringify({
+    site: 'VIA OPUS — Engenharia & Construções', versao: site.meta.versaoNumero || '5.1', rotulo: site.meta.versao,
+    commit: process.env.VIA_OPUS_COMMIT || null, publicadoEm: process.env.VIA_OPUS_DATA || null
+  }, null, 2) + '\n');
+  if (site.meta.indexar) {
+    await fs.writeFile(path.join(OUT, 'CNAME'), new URL(base).host + '\n');
+    await fs.writeFile(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${new URL('sitemap.xml', base).href}\n`);
+    await fs.writeFile(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${new URL('./', base).href}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n`);
+  } else {
+    await fs.writeFile(path.join(OUT, 'robots.txt'), `User-agent: *\nDisallow: /\n`);
+  }
   console.log('VIA OPUS 5.1 gerada em v5-1/site/');
 }
 

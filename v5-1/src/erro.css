@@ -1,0 +1,8 @@
+html{background:#1f2224;color:#f1ebe2}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;font-family:"Instrument Sans",system-ui,sans-serif;line-height:1.6}
+main{max-width:34rem}
+.k{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#c98f68;margin:0 0 .8rem}
+h1{font-family:"Source Serif 4",Georgia,serif;font-weight:300;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.15;margin:0 0 1rem}
+p{margin:0 0 1.6rem;color:#cfc7bb}
+a{display:inline-block;color:#1f2224;background:#c98f68;padding:.8rem 1.4rem;text-decoration:none;font-weight:600}
+a:focus-visible,a:hover{background:#e0aa84;outline:2px solid #f1ebe2;outline-offset:3px}
