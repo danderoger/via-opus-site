@@ -48,6 +48,7 @@ async function main() {
   const c = site.contato;
   const waHref = (msg, origem, vals = {}) => `https://wa.me/${c.whatsapp}?text=${encodeURIComponent(msg + '\n\n' + fill(c.origem, { origem: fill(site.origens[origem], vals) }))}`;
   const waA = (origem, label, cls, extra = '') => `<a class="${cls}" href="${e(waHref(c.mensagemGeral, origem))}" target="_blank" rel="noopener noreferrer"${extra}>${WA}<span>${e(label)}</span></a>`;
+  const portalA = cls => `<a class="${cls}" href="${e(site.portal.url)}" target="_blank" rel="noopener noreferrer" aria-label="Acessar o sistema Obra em Dia"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>${e(site.portal.rotulo)}</span></a>`;
   const img = (key, alt, sizes, { loading = 'lazy', cls = '' } = {}) =>
     `<img${cls ? ` class="${cls}"` : ''} src="assets/${key}-1280.webp" srcset="assets/${key}-768.webp 768w, assets/${key}-1280.webp 1280w, assets/${key}-1536.webp 1536w" sizes="${sizes}" width="1536" height="1024" alt="${e(alt)}" loading="${loading}" decoding="async">`;
   const traco = key => has(`assets/${key}-traco-1536.webp`) ? `<img class="traco" src="assets/${key}-traco-1536.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async">` : '';
@@ -189,6 +190,7 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
     <nav class="hd-nav" aria-label="Navegação principal">
         ${nav}
     </nav>
+    ${portalA('hd-access')}
     ${waA('cabecalho', 'Orçamento', 'hd-cta')}
     <details class="mm">
       <summary aria-label="Abrir menu"><span class="mm-l">Menu</span><i aria-hidden="true"></i></summary>
@@ -196,6 +198,7 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
         <ol>
           ${mnav}
         </ol>
+        ${portalA('mm-access')}
         ${waA('cabecalho', o.botao, 'btn btn-copper mm-wa')}
         <p class="mm-foot">${e(k.regiao)}</p>
       </nav>
