@@ -302,8 +302,10 @@
   "rodape": {
     "frase": "Precisão que ganha forma.",
     "regiao": "Distrito Federal, Goiás e Entorno",
-    "avisoIA": "Imagens ilustrativas geradas por IA e maquete 3D ilustrativa. Não representam obras realizadas.",
-    "nota": "As imagens são estudos ilustrativos. Registros de obras reais serão incluídos após confirmação e autorização.",
+    "credito": {
+      "prefixo": "Site desenvolvido por",
+      "nome": "Konan Tech"
+    },
     "voltar": "Voltar ao início"
   },
   "credenciais": [
