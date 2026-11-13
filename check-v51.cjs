@@ -56,6 +56,17 @@ ok(!/\bfetch\(|XMLHttpRequest|localStorage|sessionStorage|document\.cookie|sendB
 ok(!/\sstyle="/.test(html), 'Atributo style inline (bloqueado pela CSP)');
 ok(![...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>/g)].some(m => !/type="application\/(ld\+)?json"/.test(m[1])), 'Script inline executável (bloqueado pela CSP)');
 
+// Portfólio direto: link de navegação abre página independente, com todos os estudos.
+const portfolioPagePath = path.join(dir, 'portfolio.html');
+ok(fs.existsSync(portfolioPagePath), 'Página de portfólio não foi gerada');
+if (fs.existsSync(portfolioPagePath)) {
+  const portfolioPage = fs.readFileSync(portfolioPagePath, 'utf8');
+  ok((html.match(/href="portfolio\.html"/g) || []).length >= 4, 'Faltam links diretos ao portfólio no site');
+  ok((portfolioPage.match(/class="portfolio-choice" href="#estudo-/g) || []).length === port.projetos.length, 'Portfólio não exibe todas as opções');
+  for (const p of port.projetos) ok(portfolioPage.includes(`id="estudo-${p.id}"`), 'Detalhe de estudo ausente: ' + p.id);
+  ok(portfolioPage.includes(site.portfolio.aviso), 'Aviso de estudos ilustrativos ausente na página de portfólio');
+}
+
 // IA identificada
 ok(html.includes(site.rodape.credito.nome) && html.includes(site.rodape.credito.prefixo), 'Crédito Konan Tech ausente no rodapé');
 ok(html.includes(site.canteiro.selo) && html.includes(site.canteiro.aviso), 'Aviso da maquete 3D ilustrativa ausente');
