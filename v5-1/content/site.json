@@ -17,6 +17,10 @@
     "mensagemEstudo": "Olá, Rafaela! Vi o estudo \"{titulo}\" ({area}) no site da VIA OPUS e quero algo parecido. Pode me atender?",
     "origem": "Origem: site VIA OPUS · {origem}"
   },
+  "portal": {
+    "rotulo": "Área do Cliente",
+    "url": "https://id-preview--190104c2-8052-44f8-9b3f-ace286125d25.lovable.app/"
+  },
   "navegacao": [
     {
       "destino": "obras",
