@@ -161,7 +161,7 @@ async function main() {
     founder: h.fundadores.map(f => ({ '@type': 'Person', name: f.nome, ...(/arquitet/i.test(f.funcao) ? { jobTitle: 'Arquiteta' } : {}) })),
     contactPoint: [{ '@type': 'ContactPoint', contactType: 'orçamentos', telephone: '+' + c.whatsapp, availableLanguage: 'pt-BR' }],
     ...(creds.find(z => z.rotulo === 'CNPJ') ? { taxID: creds.find(z => z.rotulo === 'CNPJ').valor.trim() } : {}),
-    ...(base ? { url: base, logo: new URL('assets/via-opus-640.webp', base).href, image: new URL(site.meta.imagemCompartilhar, base).href } : {})
+    ...(base ? { url: base, logo: new URL('assets/via-opus-prata.png', base).href, image: new URL(site.meta.imagemCompartilhar, base).href } : {})
   }).replace(/</g, '\\u003c');
 
   const html = `<!doctype html>
@@ -181,15 +181,14 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
 <meta property="og:title" content="${e(site.meta.titulo)}">
 <meta property="og:description" content="${e(site.meta.descricao)}">
 <meta property="og:image" content="${e(abs(site.meta.imagemCompartilhar))}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="351">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="generator" content="VIA OPUS ${e(site.meta.versaoNumero || '5.1')}">
 <meta http-equiv="Content-Security-Policy" content="${CSP}">
-<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="assets/via-opus-icone-192.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon-prata.png" type="image/png" sizes="64x64">
+<link rel="icon" href="assets/via-opus-prata-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-prata.png">
 <link rel="stylesheet" href="fonts.css?v=${assetVersion}">
 <link rel="stylesheet" href="styles.css?v=${assetVersion}">
 <script src="boot.js?v=${assetVersion}"></script>
@@ -219,8 +218,8 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
 <header class="hd">
   <div class="hd-in">
     <a class="hd-brand" href="#canteiro" aria-label="VIA OPUS — Engenharia &amp; Construções. Ir para o início">
-      <img class="hd-mono" src="assets/via-opus-monograma-240.webp" width="240" height="123" alt="">
-      <img class="hd-word" src="assets/via-opus-nome-480.webp" width="480" height="58" alt="">
+      <svg class="hd-mono brand-silver" viewBox="76 5 432 217" width="56" height="29" aria-hidden="true"><image href="assets/via-opus-prata.png" width="600" height="351"/></svg>
+      <svg class="hd-word brand-silver" viewBox="0 239 600 72" width="148" height="18" aria-hidden="true"><image href="assets/via-opus-prata.png" width="600" height="351"/></svg>
     </a>
     <nav class="hd-nav" aria-label="Navegação principal">
         ${nav}
@@ -413,7 +412,7 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
 
 <footer class="ft" data-theme="dark">
   <div class="wrap">
-    <img class="ft-logo" src="assets/via-opus-960.webp" srcset="assets/via-opus-640.webp 640w, assets/via-opus-960.webp 960w" sizes="(min-width: 900px) 420px, 70vw" width="960" height="526" alt="Logomarca VIA OPUS — Engenharia &amp; Construções" loading="lazy" decoding="async">
+    <img class="ft-logo" src="assets/via-opus-prata.png" width="600" height="351" alt="Logomarca VIA OPUS - Engenharia &amp; Construções" loading="lazy" decoding="async">
     <div class="ft-cols">
       <div><p>${e(site.rodape.regiao)}<br>WhatsApp ${e(c.whatsappExibir)} · ${e(c.nome)}</p>${credHtml}</div>
       <p class="ft-end"><a class="link-arrow" href="#canteiro"><span>${e(site.rodape.voltar)}</span>${ARROW}</a><span class="ft-ver">${e(site.meta.versao)}</span></p>
@@ -485,7 +484,7 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${e(site.meta.url)}portfolio.html">
 <meta http-equiv="Content-Security-Policy" content="${CSP}">
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="assets/favicon-prata.png" type="image/png">
 <link rel="stylesheet" href="fonts.css?v=${assetVersion}">
 <link rel="stylesheet" href="styles.css?v=${assetVersion}">
 </head>
@@ -493,7 +492,7 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
 <main id="todos" class="port-page">
   <section class="port-page-overview" aria-labelledby="portfolio-page-title">
     <header class="port-page-header">
-      <a class="port-page-logo" href="./" aria-label="Voltar ao site VIA OPUS"><img src="assets/via-opus-nome-480.webp" width="480" height="58" alt="VIA OPUS"></a>
+      <a class="port-page-logo" href="./" aria-label="Voltar ao site VIA OPUS"><svg viewBox="0 239 600 72" width="250" height="30" aria-hidden="true"><image href="assets/via-opus-prata.png" width="600" height="351"/></svg></a>
       <nav aria-label="Navegação"><a href="./">← Voltar ao site</a><a href="${e(site.portal.url)}" target="_blank" rel="noopener noreferrer">Área do Cliente</a></nav>
     </header>
     <div class="port-page-intro">
@@ -521,7 +520,18 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
   for (const f of await fs.readdir(path.join(V5, 'assets'))) await fs.copyFile(path.join(V5, 'assets', f), path.join(OUT, 'assets', f));
   for (const f of (await fs.readdir(FONTS)).filter(f => f.endsWith('.txt'))) await fs.copyFile(path.join(FONTS, f), path.join(OUT, 'fonts', f));
   await fs.writeFile(path.join(OUT, 'fonts.css'), await fontsCss());
-  await fs.copyFile(path.join(V5, 'assets', 'favicon.ico'), path.join(OUT, 'favicon.ico'));
+  // ICO aceita PNG embutido: reutiliza o ícone prateado sem rasterizar a marca.
+  const favicon = await fs.readFile(path.join(V5, 'assets', 'favicon-prata.png'));
+  const icoHeader = Buffer.alloc(22);
+  icoHeader.writeUInt16LE(1, 2);
+  icoHeader.writeUInt16LE(1, 4);
+  icoHeader[6] = favicon.readUInt32BE(16);
+  icoHeader[7] = favicon.readUInt32BE(20);
+  icoHeader.writeUInt16LE(1, 10);
+  icoHeader.writeUInt16LE(32, 12);
+  icoHeader.writeUInt32LE(favicon.length, 14);
+  icoHeader.writeUInt32LE(22, 18);
+  await fs.writeFile(path.join(OUT, 'favicon.ico'), Buffer.concat([icoHeader, favicon]));
   await fs.copyFile(path.join(V5, 'src', 'erro.css'), path.join(OUT, 'erro.css'));
   const home = base || './';
   await fs.writeFile(path.join(OUT, '404.html'), `<!doctype html>
@@ -532,7 +542,7 @@ ${waA('fixo', 'Orçamento', 'wa-float')}
 <meta name="robots" content="noindex">
 <meta http-equiv="Content-Security-Policy" content="${CSP}">
 <title>Página não encontrada — VIA OPUS</title>
-<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/favicon-prata.png" type="image/png" sizes="64x64">
 <link rel="stylesheet" href="/fonts.css">
 <link rel="stylesheet" href="/erro.css">
 </head>
