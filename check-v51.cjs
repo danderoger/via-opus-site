@@ -96,8 +96,8 @@ if (!site.meta.indexar) {
   ok(html.includes('<meta name="robots" content="index,follow">'), 'Meta robots index,follow ausente');
   ok(html.includes(`<link rel="canonical" href="${site.meta.url}">`), 'URL canônica incorreta');
   ok(html.includes(`<meta property="og:url" content="${site.meta.url}">`), 'og:url incorreto');
-  ok(html.includes(`<meta property="og:image" content="${site.meta.url}assets/via-opus-compartilhar-1200x630.jpg">`), 'og:image deve ser URL absoluta');
-  ok(fs.existsSync(path.join(dir, 'assets/via-opus-compartilhar-1200x630.jpg')), 'Imagem de compartilhamento ausente');
+  ok(html.includes(`<meta property="og:image" content="${site.meta.url}assets/via-opus-prata.png">`), 'og:image deve ser URL absoluta');
+  ok(fs.existsSync(path.join(dir, 'assets/via-opus-prata.png')), 'Imagem de compartilhamento ausente');
   ok(/<title>[^<]{10,}<\/title>/.test(html) && /<meta name="description" content="[^"]{80,}"/.test(html), 'Título/descrição ausentes ou curtos');
   ok(!/Disallow: \//.test(robots) && /Allow: \//.test(robots), 'robots.txt deveria permitir');
   ok(robots.includes(`Sitemap: ${site.meta.url}sitemap.xml`), 'robots.txt sem Sitemap');
@@ -118,5 +118,17 @@ ok(html.includes('class="stage3d"') && html.includes('class="sky"'), 'Palco 3D f
 ok(html.includes(site.orcamento.legendaNoite), 'Legenda da maquete noturna ausente');
 ok((html.match(/class="pf-media build bricky"/g) || []).length === port.projetos.length, 'Portfólio sem o efeito de tijolos');
 ok((html.match(/data-fill/g) || []).length === 2, 'Números sem o efeito de concreto');
+
+// Marca prateada na home, no portfólio e nos ícones, sem fundos fotográficos nas logos.
+for (const page of ['index.html', 'portfolio.html']) {
+  const content = fs.readFileSync(path.join(dir, page), 'utf8');
+  ok(content.includes('assets/via-opus-prata.png'), 'Marca prateada ausente: ' + page);
+  ok(!/assets\/via-opus-(?:monograma|nome|320|640|960)/.test(content), 'Marca cobre ainda referenciada: ' + page);
+  ok(content.includes('assets/favicon-prata.png'), 'Favicon prateado ausente: ' + page);
+}
+ok(css.includes('.hd.on-dark .brand-silver{filter:none}'), 'Contraste da marca no cabeçalho escuro ausente');
+ok(html.includes('assets/apple-touch-icon-prata.png'), 'Ícone prateado de instalação ausente');
+ok(fs.readFileSync(path.join(dir, 'favicon.ico')).subarray(22).equals(fs.readFileSync(path.join(dir, 'assets/favicon-prata.png'))), 'Favicon legado não corresponde à marca prateada');
+
 if (fails.length) { console.error('FALHOU:\n- ' + fails.join('\n- ')); process.exit(1); }
 console.log(`PASS: versão 5.1, ${port.projetos.length} estudos, ${was.length} botões de WhatsApp (todos para a Rafaela, com origem), maquete 3D viva (andaimes, vista explodida, dia/noite, pontos de interesse) com modo alternativo, galeria traço→foto assentada tijolo por tijolo, números enchendo de concreto, antes/depois, IA identificada, recursos locais, sem formulário/coleta, compatível com CSP.`);
