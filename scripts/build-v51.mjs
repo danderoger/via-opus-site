@@ -417,7 +417,7 @@ ${base ? `<link rel="canonical" href="${e(base)}">\n<meta property="og:url" cont
       <div><p>${e(site.rodape.regiao)}<br>WhatsApp ${e(c.whatsappExibir)} · ${e(c.nome)}</p>${credHtml}</div>
       <p class="ft-end"><a class="link-arrow" href="#canteiro"><span>${e(site.rodape.voltar)}</span>${ARROW}</a><span class="ft-ver">${e(site.meta.versao)}</span></p>
     </div>
-    <p class="ft-credit"><span>${e(site.rodape.credito.prefixo)}</span> <b>${e(site.rodape.credito.nome)}</b></p>
+    <p class="ft-credit"><span>${e(site.rodape.credito.prefixo)}</span> <a class="ft-credit-link" href="${e(site.rodape.credito.url)}" target="_blank" rel="noopener noreferrer">${e(site.rodape.credito.nome)}</a></p>
   </div>
 </footer>
 
