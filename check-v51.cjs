@@ -20,6 +20,8 @@ for (const m of css.matchAll(/url\(([^)]+)\)/g)) refs.add(m[1].replace(/["']/g, 
 const own = (site.meta.url || '').trim();
 for (const r of refs) {
   if (r === site.portal.url) continue;
+  // Única nova URL externa autorizada: crédito da agência no rodapé.
+  if (r === site.rodape.credito.url && r === 'https://www.konantech.com.br/') continue;
   if (/^https:\/\/wa\.me\//.test(r)) continue;
   if (own && r.startsWith(own)) continue;
   if (/^(https?:)?\/\//.test(r) || /^data:/.test(r)) { fails.push('Recurso externo: ' + r); continue; }
@@ -69,6 +71,10 @@ if (fs.existsSync(portfolioPagePath)) {
 
 // IA identificada
 ok(html.includes(site.rodape.credito.nome) && html.includes(site.rodape.credito.prefixo), 'Crédito Konan Tech ausente no rodapé');
+ok(site.rodape.credito.url === 'https://www.konantech.com.br/', 'URL oficial Konan Tech não corresponde ao solicitado');
+ok(html.includes('<a class="ft-credit-link" href="https://www.konantech.com.br/" target="_blank" rel="noopener noreferrer">Konan Tech</a>'), 'Crédito da Konan Tech sem link externo seguro');
+ok(/\.ft-credit \.ft-credit-link\{[^}]*text-decoration-thickness:1px;/.test(css), 'Sublinhado fino do crédito não encontrado');
+ok(/\.ft-credit \.ft-credit-link:hover,[^\{]*\{[^}]*text-decoration-thickness:2px/.test(css), 'Hover do crédito não reforça o sublinhado');
 ok(html.includes(site.canteiro.selo) && html.includes(site.canteiro.aviso), 'Aviso da maquete 3D ilustrativa ausente');
 ok(fs.existsSync(path.join(dir, 'assets/js/three.min.js')) && fs.existsSync(path.join(dir, 'obra3d.js')), 'Arquivos da maquete 3D ausentes');
 ok(/fallback|has-3d/.test(fs.readFileSync(path.join(dir, 'styles.css'), 'utf8')), 'Sem modo alternativo para quando não há 3D');
