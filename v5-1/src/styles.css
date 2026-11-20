@@ -477,7 +477,8 @@ textarea::placeholder{color:var(--d-faint)}
 .ft-end{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;color:var(--ivory)}
 .ft-ver{font-size:11px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--d-line);border-radius:999px;padding:4px 10px;color:var(--d-faint)}
 .ft-credit{margin:34px 0 0;padding-top:20px;border-top:1px solid var(--d-line);display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:4px 10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--d-faint)}
-.ft-credit b{font-weight:600;letter-spacing:.3em;color:var(--cu-2)}
+.ft-credit .ft-credit-link{font-weight:600;letter-spacing:.3em;color:var(--cu-2);text-decoration-line:underline;text-decoration-color:color-mix(in srgb,var(--cu-2) 40%,transparent);text-decoration-thickness:1px;text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease,text-decoration-thickness .2s ease}
+.ft-credit .ft-credit-link:hover,.ft-credit .ft-credit-link:focus-visible{color:var(--ivory);text-decoration-color:var(--cu-2);text-decoration-thickness:2px}
 @media (min-width:900px){.ft-cols{grid-template-columns:1fr auto;align-items:end}.ft-credit{justify-content:flex-end}}
 
 /* botão fixo (celular) */
