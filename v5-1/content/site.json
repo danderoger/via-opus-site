@@ -308,7 +308,8 @@
     "regiao": "Distrito Federal, Goiás e Entorno",
     "credito": {
       "prefixo": "Site desenvolvido por",
-      "nome": "Konan Tech"
+      "nome": "Konan Tech",
+      "url": "https://www.konantech.com.br/"
     },
     "voltar": "Voltar ao início"
   },
